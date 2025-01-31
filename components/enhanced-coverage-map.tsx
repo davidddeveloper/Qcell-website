@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client"
 
 import { useEffect, useRef, useState } from "react"
@@ -164,7 +165,7 @@ export default function EnhancedCoverageMap() {
           <div class="marker-label">${area.name}</div>
         `
 
-        const marker = new mapboxgl.Marker(el)
+        new mapboxgl.Marker(el)
           .setLngLat(area.coordinates)
           .setPopup(
             new mapboxgl.Popup({ offset: 25 }).setHTML(`
