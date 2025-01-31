@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { TypingAnimation } from "@/components/typing-animation"
 import { ZoomTransition } from "@/components/zoom-transition"
 import Navigation from "@/components/navigation"
+import Cursor from "@/components/cursor"
+import EnhancedCoverageMap from "@/components/enhanced-coverage-map"
 
 export default function Home() {
   const [stage, setStage] = useState<"typing" | "zooming" | "content">("typing")
@@ -18,6 +20,8 @@ export default function Home() {
   }
 
   return (
+    <>
+    
     <main className="relative min-h-screen bg-white overflow-hidden">
       <AnimatePresence mode="wait">
         {stage === "typing" && (
@@ -50,9 +54,27 @@ export default function Home() {
             transition={{ duration: 1 }}
           >
             <Navigation />
+            <Cursor />
+            <section className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5 }}
+                className="container mx-auto px-4 py-16"
+              >
+                <div className="mb-12 text-center">
+                  <h2 className="text-4xl font-bold text-gray-900">Network Coverage</h2>
+                  <p className="mt-4 text-lg text-gray-600">
+                    Explore our extensive network coverage across Sierra Leone
+                  </p>
+                </div>
+                <EnhancedCoverageMap />
+              </motion.div>
+            </section>
           </motion.div>
         )}
       </AnimatePresence>
     </main>
+    </>
   )
 }
