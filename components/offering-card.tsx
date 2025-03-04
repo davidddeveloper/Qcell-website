@@ -15,7 +15,7 @@ interface OfferingCardProps {
   onClick: () => void
 }
 
-export default function OfferingCard({ offering, index, isActive, onClick }: OfferingCardProps) {
+export default function OfferingCard({ offering, index, onClick }: OfferingCardProps) {
   return (
     
     <motion.div

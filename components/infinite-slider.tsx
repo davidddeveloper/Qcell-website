@@ -111,7 +111,7 @@ export default function InfiniteSlider() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {testimonials.map((item, index) => (
+        {testimonials.map((item) => (
           <motion.div
             key={item.id}
             className="relative aspect-video w-[600px]"
