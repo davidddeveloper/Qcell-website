@@ -270,13 +270,14 @@ export default function EnhancedCoverageMap() {
       <div className="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-black/60 to-transparent p-8 text-white">
         <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl font-bold">
           With Qcell,{" "}
-          <span className="bg-gradient-to-r from-[#CD7F32] to-[#B87333] bg-clip-text text-transparent">
-            you&apos;re always connected
+          <br />
+          <span className="relative bg-gradient-to-r from-[#CD7F32] to-[#B87333] bg-clip-text text-transparent">
+            You&apos;re always <span className="after:absolute after:w-[42%] after:h-1/6 after:bg-white after:right-0 after:-bottom-1">connected</span>
           </span>
         </motion.h1>
       </div>
 
-      <div className="absolute inset-y-0 right-0 z-10 w-96 bg-black/80 p-6 backdrop-blur-sm overflow-y-auto">
+      <div className="absolute inset-y-0 right-0 z-10 w-80 sm:w-96 bg-black/80 p-6 backdrop-blur-sm overflow-y-auto">
         <div className="mb-6 flex gap-4 sticky">
           <button
             onClick={() => setActiveTab("map")}

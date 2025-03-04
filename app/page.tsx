@@ -6,7 +6,10 @@ import { TypingAnimation } from "@/components/typing-animation"
 import { ZoomTransition } from "@/components/zoom-transition"
 import Navigation from "@/components/navigation"
 import Cursor from "@/components/cursor"
-import EnhancedCoverageMap from "@/components/enhanced-coverage-map"
+import EnhancedCoverageMap from "@/components/enhanced-coverage-map-two"
+
+import OfferingsSlider from "@/components/offering-slider"
+import InfiniteSlider from "@/components/infinite-slider"
 
 export default function Home() {
   const [stage, setStage] = useState<"typing" | "zooming" | "content">("typing")
@@ -47,6 +50,7 @@ export default function Home() {
           </motion.div>
         )}
         {stage === "content" && (
+          <>
           <motion.div
             key="content"
             initial={{ opacity: 0 }}
@@ -60,20 +64,29 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5 }}
-                className="container mx-auto px-4 py-16"
+                className="container mx-auto py-10" // px-4 py-16
               >
-                <div className="mb-12 text-center">
+                {/*<div className="mb-12 text-center">
                   <h2 className="text-4xl font-bold text-gray-900">Network Coverage</h2>
                   <p className="mt-4 text-lg text-gray-600">
                     Explore our extensive network coverage across Sierra Leone
                   </p>
-                </div>
+                </div>*/}
                 <EnhancedCoverageMap />
               </motion.div>
             </section>
           </motion.div>
+          <section className="py-0">
+            <OfferingsSlider />
+          </section>
+          <section className="py-0">
+            <InfiniteSlider />
+          </section>
+          </>
         )}
       </AnimatePresence>
+
+      
     </main>
     </>
   )

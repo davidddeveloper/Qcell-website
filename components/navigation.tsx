@@ -24,20 +24,27 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    title: "What's new?",
+    title: "About us",
     content: {
       heading: "Latest Updates",
       subheading: "Stay up to date with our newest offerings"
     }
   },
   {
-    title: "Mobile",
+    title: "Tariffs",
+    content: {
+      heading: "Latest Updates",
+      subheading: "Stay up to date with our newest offerings"
+    }
+  },
+  {
+    title: "Devices",
     content: {
       heading: "Stay Connected, Anywhere, Anytime with Qcell Mobile Plans.",
       links: [
-        { title: "Devices", href: "#" },
-        { title: "Prepaid", href: "#" },
-        { title: "Tariff", href: "#" }
+        { title: "Indoor Routers", href: "#" },
+        { title: "Mifi Devices", href: "#" },
+        { title: "Mobile Devices", href: "#" }
       ]
     }
   },
@@ -46,10 +53,9 @@ const navItems: NavItem[] = [
     content: {
       heading: "Enjoy Ultra-Fast 4G Internet Connectivity.",
       links: [
-        { title: "Devices", href: "#" },
         { title: "QFiber", href: "#" },
-        { title: "Bundles", href: "#" },
-        { title: "4GLite", href: "#" }
+        { title: "Data Bundles", href: "#" },
+        { title: "Unlimited Data Plans", href: "#" }
       ],
       image: Qcell4G
     }
@@ -96,13 +102,13 @@ const navItems: NavItem[] = [
       ]
     }
   },
-  {
+  /*{
     title: "Join Us",
     content: {
       heading: "Become Part of Our Network",
       subheading: "Join the fastest growing network in the region"
     }
-  }
+  }*/
 ]
 
 export default function Navigation() {
@@ -136,9 +142,11 @@ export default function Navigation() {
             {navItems.map((item, index) => (
               <motion.button
                 key={item.title}
-                className={`relative py-4 text-sm font-medium transition-colors flex-shrink-0 hover:text-white/90 ${
-                  activeItem === item.title ? "text-white border-b-2" : "text-white/80"
+                className={`nav-btn relative py-4 text-sm font-medium transition-colors flex-shrink-0 hover:text-white/90 ${
+                  activeItem === item.title ? "text-white border-b-2" : "text-white"
                 }`}
+                onMouseEnter={() => setActiveItem(item.title)}
+                onMouseLeave={() => setActiveItem(null)}
                 onClick={() => setActiveItem(activeItem === item.title ? null : item.title)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -147,7 +155,7 @@ export default function Navigation() {
                 {item.title}
                 {activeItem === item.title && (
                   <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 w-full bg-white"
+                    className="absolute bottom-0 left-0 h-0.5 w-full bg-white text-white"
                     layoutId="underline"
                   />
                 )}
@@ -180,17 +188,17 @@ export default function Navigation() {
                     <div key={item.title} className="container mx-auto p-8">
                       <div className="grid gap-8 md:grid-cols-2">
                         <div className="space-y-4">
-                          <h2 className="text-2xl font-semibold">{item.content.heading}</h2>
+                          <h2 className="text-2xl font-semibold text-white">{item.content.heading}</h2>
                           {item.content.subheading && (
-                            <p className="text-sm text-white/80">{item.content.subheading}</p>
+                            <p className="text-sm text-white/80 text-white">{item.content.subheading}</p>
                           )}
                           {item.content.links && (
-                            <div className="grid gap-2 pt-4">
+                            <div className="grid gap-2 pt-4 text-white">
                               {item.content.links.map((link) => (
                                 <Link
                                   key={link.title}
                                   href={link.href}
-                                  className="text-sm hover:text-white/90"
+                                  className="text-sm text-white hover:text-white/90"
                                 >
                                   {link.title}
                                 </Link>
@@ -265,7 +273,7 @@ export default function Navigation() {
                 href="#"
                 className="rounded-md bg-[#F98F1F] px-3 py-1 sm:px-6 sm:py-3 pt-[16px] sm:pt-[18px] font-medium text-white transition-colors hover:bg-[#CD7F32]/90"
               >
-                Explore Plans
+                Find us
               </Link>
               <Link
                 href="#"
