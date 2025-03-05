@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { TypingAnimation } from "@/components/typing-animation"
 import { ZoomTransition } from "@/components/zoom-transition"
-import Navigation from "@/components/navigation"
+import Navigation from "@/components/navigation-two"
 import Cursor from "@/components/cursor"
 import EnhancedCoverageMap from "@/components/enhanced-coverage-map-two"
 
