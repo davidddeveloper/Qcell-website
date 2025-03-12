@@ -24,7 +24,7 @@ export default function Footer() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
   //const [emailFocus, setEmailFocus] = useState(false)
-  const [email, setEmail] = useState("")
+  //const [email, setEmail] = useState("")
   const footerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(footerRef, { once: true, amount: 0.1 })
 
