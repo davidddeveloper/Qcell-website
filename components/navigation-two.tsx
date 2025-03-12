@@ -875,7 +875,7 @@ export default function Navigation() {
                 transition: "all 0.5s"
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/100 to-[#ff8400]/80 z-10 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#ff8400]/50 to-[#ff8400]/80 z-10 mix-blend-overlay" />
             <Image
               src={heroImages[currentSlide] || "/placeholder.svg"}
               alt={`Slide ${currentSlide + 1}`}
