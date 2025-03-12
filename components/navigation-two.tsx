@@ -341,6 +341,7 @@ export default function Navigation() {
           backgroundColor: isScrolled ? "rgba(205, 127, 50, 0.85)" : "rgba(0, 0, 0, 0.3)",
           backdropFilter: isScrolled ? "blur(10px)" : "blur(5px)",
         }} */}
+        
         <motion.div
           className="container mx-auto flex items-center justify-between"
           
@@ -349,7 +350,7 @@ export default function Navigation() {
             paddingTop: isScrolled ? "0.75rem" : "1.5rem",
             paddingBottom: isScrolled ? "0.75rem" : "1.5rem",
           }}*/}
-          <div className="flex items-center z-40">
+          <div className="flex items-center z-40 space-x-5">
             <motion.div
               style={{ scale: isScrolled ? 1 : 1 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -360,10 +361,16 @@ export default function Navigation() {
                   alt="Qcell Logo"
                   width={50}
                   height={50}
-                  className="h-[50px] w-[50px] object-cover rounded-md rounded-tr-none rounded-br-none"
+                  className="h-[50px] w-[50px] object-cover rounded-md rounded-tr-none rounded-br-none xl:rounded-none"
+                  style={{
+                    borderBottomLeftRadius: activeItem ? "0px" : "5px",
+                    borderTopLeftRadius: activeItem ? "0px" : "5px"
+                  }}
                 /> <span className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</span>
               </Link>
             </motion.div>
+            <p>Expand Your World</p>
+          </div>
 
             <nav className="ml-8 hidden items-center justify-between lg:flex">
               <ul className="flex space-x-8 items-center justify-center">
@@ -420,9 +427,8 @@ export default function Navigation() {
                 ))}
               </ul>
             </nav>
-          </div>
 
-          <div className="hidden items-center space-x-4 z-40 lg:flex">
+          {/*<div className="hidden items-center space-x-4 z-40 lg:flex">
             <motion.button
               className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition-colors hover:bg-white/30"
               onClick={toggleSearch}
@@ -450,7 +456,7 @@ export default function Navigation() {
                 Get Started
               </Link>
             </motion.div>
-          </div>
+          </div> */}
 
           <motion.button
             className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white lg:hidden"

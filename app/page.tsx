@@ -11,6 +11,9 @@ import EnhancedCoverageMap from "@/components/enhanced-coverage-map-two"
 import OfferingsSlider from "@/components/offering-slider"
 import InfiniteSlider from "@/components/infinite-slider"
 
+import DownloadApp from "@/components/download-app"
+import Footer from "@/components/footer"
+
 export default function Home() {
   const [stage, setStage] = useState<"typing" | "zooming" | "content">("typing")
 
@@ -81,6 +84,12 @@ export default function Home() {
           </section>
           <section className="py-0">
             <InfiniteSlider />
+          </section>
+          <section>
+            <DownloadApp />
+          </section>
+          <section className="py-0">
+            <Footer />
           </section>
           </>
         )}
