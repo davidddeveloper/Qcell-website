@@ -23,7 +23,7 @@ import {
 export default function Footer() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
-  const [emailFocus, setEmailFocus] = useState(false)
+  //const [emailFocus, setEmailFocus] = useState(false)
   const [email, setEmail] = useState("")
   const footerRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(footerRef, { once: true, amount: 0.1 })
@@ -36,12 +36,12 @@ export default function Footer() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  {/*const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle newsletter subscription
     alert(`Thank you for subscribing with: ${email}`)
     setEmail("")
-  }
+  }*/}
 
   const footerSections = [
     {
@@ -240,7 +240,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12 md:px-6 md:py-16">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Desktop Footer */}
-          {footerSections.map((section, index) => (
+          {footerSections.map((section) => (
             <motion.div
               key={section.title}
               className="hidden lg:block"
