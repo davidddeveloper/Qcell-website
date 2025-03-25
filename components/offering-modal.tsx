@@ -19,7 +19,7 @@ export default function OfferingModal({ offering, isOpen, onClose }: OfferingMod
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="mx-auto w-full md:w-[80%] h-[90%] overflow-hidden overflow-y-scroll bg-white text-black rounded-tr-2xl rounded-tl-2xl md:p-14">
+      <DialogContent className="mx-auto w-full md:w-[80%] h-[90%] overflow-hidden overflow-y-scroll no-scrollbar bg-white text-black -mb-3 rounded-tr-2xl rounded-tl-2xl md:p-14">
         <DialogHeader>
           <div className="my-10 mb-14">
             <p className="tag font-bold">{offering.title}</p>
