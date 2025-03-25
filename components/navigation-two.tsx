@@ -284,38 +284,39 @@ export default function Navigation() {
   useEffect(() => {
     if (activeItem) {
       controls.start("visible")
-      heroRef.current?.classList.add("blur-sm")
-      heroRef.current?.classList.add("transition-all")
-      document.querySelector('.main-content')?.classList.add("blur-sm")
+      document.querySelector('.backdrop-filter')?.classList.remove("hidden")
+      document.querySelector('.backdrop-filter')?.classList.add("backdrop-blur-md")
       //return () => {
-      //  document.body.classList.remove("blur-sm")
+      //  document.body.classList.remove("backdrop-blur-sm")
       //}
     } else {
       controls.start("hidden")
-      heroRef.current?.classList.remove("blur-sm")
-      document.querySelector('.main-content')?.classList.remove("blur-sm")
+
+      document.querySelector('.backdrop-filter')?.classList.add("hidden")
+      document.querySelector('.backdrop-filter')?.classList.remove("backdrop-blur-md")
     }
   }, [activeItem, controls])
 
   useEffect(() => {
     if (mobileMenuOpen) {
-      heroRef.current?.classList.add("blur-sm")
-      heroRef.current?.classList.add("transition-all")
-      document.querySelector('.main-content')?.classList.add("blur-sm")
+      document.querySelector('.backdrop-filter')?.classList.remove("hidden")
+      document.querySelector('.backdrop-filter')?.classList.add("backdrop-blur-md")
     } else {
-      heroRef.current?.classList.remove("blur-sm")
-      document.querySelector('.main-content')?.classList.remove("blur-sm")
+
+      document.querySelector('.backdrop-filter')?.classList.add("hidden")
+      document.querySelector('.backdrop-filter')?.classList.remove("backdrop-blur-md")
     }
   }, [mobileMenuOpen])
 
   useEffect(() => {
     if (searchOpen) {
-      heroRef.current?.classList.add("blur-md")
-      heroRef.current?.classList.add("transition-all")
-      document.querySelector('.main-content')?.classList.add("blur-sm")
+  
+      document.querySelector('.backdrop-filter')?.classList.remove("hidden")
+      document.querySelector('.backdrop-filter')?.classList.add("backdrop-blur-md")
     } else {
-      heroRef.current?.classList.remove("blur-md")
-      document.querySelector('.main-content')?.classList.remove("blur-sm")
+
+      document.querySelector('.backdrop-filter')?.classList.add("hidden")
+      document.querySelector('.backdrop-filter')?.classList.remove("backdrop-blur-md")
     }
   }, [searchOpen])
 
@@ -350,12 +351,12 @@ export default function Navigation() {
             borderRadius: isScrolled ? "0" : "0.3rem",
             backgroundColor: isScrolled ? "rgba(158, 82, 1, 0.45)" : "rgba(158, 82, 1, 0.3)",
             transition: "all 0.5s",
-            backdropFilter: isScrolled ? "blur(10px)" : "blur(5px)",
+            backdropFilter: isScrolled ? "backdrop-blur(10px)" : "backdrop-blur(5px)",
         }}
       >
         {/*style={{
           backgroundColor: isScrolled ? "rgba(205, 127, 50, 0.85)" : "rgba(0, 0, 0, 0.3)",
-          backdropFilter: isScrolled ? "blur(10px)" : "blur(5px)",
+          backdropFilter: isScrolled ? "backdrop-blur(10px)" : "backdrop-blur(5px)",
         }} */}
         
         <motion.div
@@ -496,8 +497,8 @@ export default function Navigation() {
               exit="hidden"
               style={{
                 backgroundColor: isScrolled ? "rgba(158, 82, 1, 0.3)" : "rgba(158, 82, 1, 0.3)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
+                backdropFilter: "backdrop-blur(20px)",
+                WebkitBackdropFilter: "backdrop-blur(20px)",
                 boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
                 borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
                 borderBottomLeftRadius: "20px",
@@ -586,8 +587,8 @@ export default function Navigation() {
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 backgroundColor: isScrolled ? "rgba(158, 82, 1, 0.3)" : "rgba(158, 82, 1, 0.3)",
-                backdropFilter: "blur(10px)",
-                WebkitBackdropFilter: "blur(10px)",
+                backdropFilter: "backdrop-blur(10px)",
+                WebkitBackdropFilter: "backdrop-blur(10px)",
                 boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
               }}
             >
@@ -858,7 +859,7 @@ export default function Navigation() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.4 }}
                 >
-                  <motion.button
+                  {/*<motion.button
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white"
                     onClick={() => {
                         setMobileMenuOpen(false)
@@ -868,7 +869,7 @@ export default function Navigation() {
                     whileTap={{ scale: 0.9 }}
                   >
                     <Search className="h-5 w-5" />
-                  </motion.button>
+                  </motion.button>*/}
                 </motion.div>
               </div>
             </div>

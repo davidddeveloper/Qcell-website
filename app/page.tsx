@@ -100,6 +100,7 @@ export default function Home() {
       </AnimatePresence>
 
       
+    <div className="hidden backdrop-filter z-40 bg-black/40 absolute inset-0 transition-all "></div>
     </main>
     </>
   )

@@ -160,7 +160,7 @@ export default function EnhancedCoverageMap() {
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v11", // We'll customize this with layers
+      style: "mapbox://styles/mapbox/satellite-streets-v12", // Darkmode: mapbox://styles/mapbox/dark-v11
       center: [-11.7799, 8.4606],
       zoom: 7,
       pitch: 45,

@@ -6,7 +6,6 @@ import { Check } from "lucide-react"
 import type { Offering } from "@/types/offerings"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
 
 interface OfferingModalProps {
   offering: Offering | null
@@ -19,24 +18,10 @@ export default function OfferingModal({ offering, isOpen, onClose }: OfferingMod
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="mx-auto w-full md:w-[80%] h-[90%] overflow-hidden overflow-y-scroll bg-white text-black rounded-tr-2xl rounded-tl-2xl md:p-14">
+      <DialogContent className="max-w-2xl overflow-hidden bg-gradient-to-br from-[#5a3919] to-[#c46004] text-white">
         <DialogHeader>
-          <div className="my-10 mb-14">
-            <p className="tag font-bold">{offering.title}</p>
-            <DialogTitle className="text-5xl font-bold mt-3">{offering.details.title}</DialogTitle>
-          </div>
-
-          <div className="md:flex md:flex-col-reverse justify-between items-center md:gap-10 md:p-14 md:bg-gray-100 md:rounded-2xl">
-            <div className="relative w-full mb-5 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[700px]">
-              <Image
-                src={offering.image}
-                alt={offering.title}
-                fill
-                className="object-cover object-center transition-transform duration-500 rounded-sm"
-              />
-            </div>
-            <DialogDescription className="text-lg text-black/80 my-10 md:text-3xl">{offering.details.description}</DialogDescription>
-          </div>
+          <DialogTitle className="text-3xl font-bold">{offering.details.title}</DialogTitle>
+          <DialogDescription className="text-lg text-white/80">{offering.details.description}</DialogDescription>
         </DialogHeader>
 
         <motion.div
@@ -65,7 +50,7 @@ export default function OfferingModal({ offering, isOpen, onClose }: OfferingMod
         </motion.div>
 
         <div className="mt-8 flex justify-end gap-4">
-          <Button variant="ghost" onClick={onClose} className="text-black hover:bg-black/50 hover:text-white">
+          <Button variant="ghost" onClick={onClose} className="text-white hover:bg-white/20 hover:text-white">
             Close
           </Button>
           <Button className="transition-all bg-white text-[#CD7F32] hover:bg-white/90 hover:scale-105">Get Started</Button>
