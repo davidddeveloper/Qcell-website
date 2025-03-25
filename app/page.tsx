@@ -54,13 +54,15 @@ export default function Home() {
         )}
         {stage === "content" && (
           <>
+          <Navigation />
           <motion.div
             key="content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
+            className="main-content"
           >
-            <Navigation />
+            
             <Cursor />
             <section className="relative">
               <motion.div
@@ -78,19 +80,21 @@ export default function Home() {
                 <EnhancedCoverageMap />
               </motion.div>
             </section>
+
+            <section className="py-0">
+              <OfferingsSlider />
+            </section>
+            <section className="py-0">
+              <InfiniteSlider />
+            </section>
+            <section>
+              <DownloadApp />
+            </section>
+            <section className="py-0">
+              <Footer />
+            </section>
           </motion.div>
-          <section className="py-0">
-            <OfferingsSlider />
-          </section>
-          <section className="py-0">
-            <InfiniteSlider />
-          </section>
-          <section>
-            <DownloadApp />
-          </section>
-          <section className="py-0">
-            <Footer />
-          </section>
+          
           </>
         )}
       </AnimatePresence>

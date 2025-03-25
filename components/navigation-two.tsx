@@ -24,20 +24,27 @@ const heroContent = [
     title: "Expand Your World with Seamless Connectivity",
     description:
       "Experience the fastest, cheapest, and most reliable network in Sierra Leone. Empowering your digital journey, one connection at a time.",
+    cta:
+      "Get Started",
   },
   {
     title: "Unlimited Data Plans for Unlimited Possibilities",
     description:
       "Stream, browse, and connect without limits. Our high-speed network keeps you connected wherever you go.",
+    cta:
+      "Explore Plans",
   },
   {
     title: "Business Solutions That Drive Growth",
     description:
       "Empower your business with our enterprise-grade connectivity solutions designed for reliability and performance.",
+    cta:
+      "Learn More",
   },
   {
     title: "Join the Qcell Family Today",
     description: "Become part of Sierra Leone's largest and most trusted telecommunications network.",
+    cta: "Join Now",
   },
 ]
 
@@ -240,7 +247,7 @@ export default function Navigation() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-    }, 5000)
+    }, 10000)
 
     return () => clearInterval(interval)
   }, [])
@@ -279,9 +286,14 @@ export default function Navigation() {
       controls.start("visible")
       heroRef.current?.classList.add("blur-sm")
       heroRef.current?.classList.add("transition-all")
+      document.querySelector('.main-content')?.classList.add("blur-sm")
+      //return () => {
+      //  document.body.classList.remove("blur-sm")
+      //}
     } else {
       controls.start("hidden")
       heroRef.current?.classList.remove("blur-sm")
+      document.querySelector('.main-content')?.classList.remove("blur-sm")
     }
   }, [activeItem, controls])
 
@@ -289,8 +301,10 @@ export default function Navigation() {
     if (mobileMenuOpen) {
       heroRef.current?.classList.add("blur-sm")
       heroRef.current?.classList.add("transition-all")
+      document.querySelector('.main-content')?.classList.add("blur-sm")
     } else {
       heroRef.current?.classList.remove("blur-sm")
+      document.querySelector('.main-content')?.classList.remove("blur-sm")
     }
   }, [mobileMenuOpen])
 
@@ -298,8 +312,10 @@ export default function Navigation() {
     if (searchOpen) {
       heroRef.current?.classList.add("blur-md")
       heroRef.current?.classList.add("transition-all")
+      document.querySelector('.main-content')?.classList.add("blur-sm")
     } else {
       heroRef.current?.classList.remove("blur-md")
+      document.querySelector('.main-content')?.classList.remove("blur-sm")
     }
   }, [searchOpen])
 
@@ -363,13 +379,13 @@ export default function Navigation() {
                   height={50}
                   className="h-[50px] w-[50px] object-cover rounded-md rounded-tr-none rounded-br-none xl:rounded-none"
                   style={{
-                    borderBottomLeftRadius: activeItem ? "0px" : "5px",
-                    borderTopLeftRadius: activeItem ? "0px" : "5px"
+                    borderBottomLeftRadius: activeItem && !isScrolled ? "0px" : "5px",
+                    borderTopLeftRadius: activeItem && !isScrolled ? "0px" : "5px"
                   }}
-                /> <span className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</span>
+                /> 
               </Link>
             </motion.div>
-            <p>Expand Your World</p>
+            <p className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</p>
           </div>
 
             <nav className="ml-8 hidden items-center justify-between lg:flex">
@@ -870,12 +886,12 @@ export default function Navigation() {
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
             style={{
-                transition: "all 0.5s"
+                transition: "all 2s"
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#ff8400]/50 to-[#ff8400]/80 z-10 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#ff8400]/80 to-[#ff8400]/80 z-10 mix-blend-overlay" />
             <Image
               src={heroImages[currentSlide] || "/placeholder.svg"}
               alt={`Slide ${currentSlide + 1}`}
@@ -978,10 +994,10 @@ export default function Navigation() {
                       href="#"
                       className="rounded-full bg-[#F98F1F] px-6 py-3 text-base font-medium text-white transition-all hover:bg-white/90 hover:shadow-lg "
                     >
-                      Find us
+                      {heroContent[currentSlide].cta}
                     </Link>
                   </motion.div>
-                  <motion.div
+                  {/*<motion.div
                     whileHover={{
                       scale: 1.05,
                       boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
@@ -994,7 +1010,7 @@ export default function Navigation() {
                     >
                       Learn more about us
                     </Link>
-                  </motion.div>
+                  </motion.div>*/}
                 </motion.div>
               </motion.div>
             </AnimatePresence>

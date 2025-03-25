@@ -14,7 +14,7 @@ export interface Offering {
       benefits: string[]
     }
   }
-  
+  //
   export const offerings: Offering[] = [
     {
       id: "qpower",

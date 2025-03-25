@@ -594,7 +594,7 @@ export default function EnhancedCoverageMap() {
             mobileDrawerOpen ? "inset-x-0 bottom-0 rounded-t-xl max-h-[70vh]" : "inset-x-0 bottom-0 h-0 overflow-hidden"
           }`} */}
       <motion.div
-        className={`absolute bottom-0 inset-y-0 sm:inset-y-0 sm:right-0 z-10 w-full sm:w-96 bg-black/80 p-6 backdrop-blur-sm overflow-y-auto
+        className={`absolute bottom-0 inset-y-0 sm:inset-y-0 sm:right-0 z-10 w-full sm:w-96 bg-black/80 p-6 backdrop-blur-sm overflow-hidden
           
           `}
         animate={{
@@ -729,9 +729,9 @@ export default function EnhancedCoverageMap() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="space-y-4 "
+                className="space-y-4 h-[490px] mb-5 overflow-y-scroll"
               >
-                <div className="space-y-2">
+                <div className="space-y-2 flex flex-col items-center justify-between">
                   {coverageAreas.map((area) => (
                     <motion.button
                       key={area.id}
