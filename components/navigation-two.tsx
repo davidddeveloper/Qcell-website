@@ -328,13 +328,13 @@ export default function Navigation() {
   }
 
   // Add this right before the return statement
-  const toggleSearch = () => {
+  {/*const toggleSearch = () => {
     setSearchOpen(!searchOpen)
     if (!searchOpen) {
       // When opening search, close any open navigation items
       setActiveItem(null)
     }
-  }
+  }*/}
 
   return (
     <>
