@@ -527,7 +527,7 @@ export default function Navigation() {
                                 <motion.div key={link.title} variants={linkVariants} custom={index}>
                                   <Link
                                     href={link.href}
-                                    className="group flex items-center text-sm text-white transition-colors hover:text-white/80"
+                                    className="group flex items-center text-sm text-white transition-colors hover:text-white/80 hover:underline"
                                   >
                                     <motion.div
                                       initial={{ x: -5, opacity: 0 }}

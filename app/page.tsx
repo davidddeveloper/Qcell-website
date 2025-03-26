@@ -9,7 +9,7 @@ import Cursor from "@/components/cursor"
 import EnhancedCoverageMap from "@/components/enhanced-coverage-map-two"
 
 import OfferingsSlider from "@/components/offering-slider"
-import InfiniteSlider from "@/components/infinite-slider"
+import InfiniteSlider from "@/components/infinite-slider-two"
 
 import DownloadApp from "@/components/download-app"
 import Footer from "@/components/footer"
