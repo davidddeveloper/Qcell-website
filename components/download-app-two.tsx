@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
-import { Smartphone, Download, Zap, Wifi, Battery, Signal } from 'lucide-react';
+import { Download, Zap, Wifi, Battery, Signal } from 'lucide-react';
 
 export default function AppDownloadPortal() {
   const [isExploring, setIsExploring] = useState(false);
