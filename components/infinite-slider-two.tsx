@@ -201,8 +201,8 @@ export default function InfiniteSlider() {
             <Image src={item.image} alt={item.name} fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-xl font-medium text-white">{item.name}</h3>
-              <p className="text-sm font-medium text-white/90">{item.tagline}</p>
+              <h3 className="text-xl font-medium text-white">{item.name} - {item.tagline}</h3>
+              {/*<p className="text-sm font-medium text-white/90">{item.tagline}</p>*/}
               <p className="mt-1 text-sm font-medium text-white">{item.service}</p>
               <p className="mt-2 text-sm text-white/80 italic">"{item.testimonial}"</p>
             </div>
