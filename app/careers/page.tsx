@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Play, Pause, X, Volume2, Maximize, Minimize } from "lucide-react"
-//import Navigation from "@/navigation" // Assuming your navigation component is at this path
+import Navigation from "@/components/nav" // Assuming your navigation component is at this path
 
 export default function CareersPage() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -194,12 +194,13 @@ export default function CareersPage() {
   }, [controlsTimeout])
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <>
       {/* Navigation */}
-      {/*<Navigation />*/}
+      <Navigation />
+    <main className="min-h-screen bg-black text-white">
 
       {/* Main Content */}
-      <div className="relative min-h-screen">
+      <div className="relative z-40 min-h-screen">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video
@@ -214,12 +215,12 @@ export default function CareersPage() {
             Your browser does not support the video tag.
           </video>
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-[#ff8400] opacity-25"></div>
         </div>
 
         {/* Content */}
-        <div ref={sectionRef} className="relative z-10 flex min-h-screen flex-col justify-between px-6 py-24 md:px-12">
-          <div className="mt-20">
+        <div ref={sectionRef} className="relative z-10 flex min-h-screen flex-col justify-center items-center px-6 py-24 md:px-12">
+          {/*<div className="mt-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -228,9 +229,23 @@ export default function CareersPage() {
             >
               Life at QCELL
             </motion.h2>
+  </div>*/}
+
+          <div>
+            <video
+              className="h-32 w-48 object-cover"
+              poster="/images/careersatqcell.jpg"
+              loop
+              muted
+              playsInline
+              autoPlay
+            >
+              <source src="/videos/apple.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
 
-          <div className="flex flex-col items-center text-center md:items-start md:text-left">
+          <div className="flex flex-col items-center justify-center text-center md:items-start md:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -244,12 +259,13 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.6 }}
+              className="mx-auto"
             >
               <button
                 onClick={openVideoModal}
-                className="group flex items-center space-x-3 rounded-full bg-white/20 px-6 py-3 backdrop-blur-sm transition-all hover:bg-white/30"
+                className="group mx-auto flex items-center space-x-3 rounded-full bg-white/20 px-6 py-3 backdrop-blur-sm transition-all hover:bg-white/30"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F98F1F] text-white transition-transform group-hover:scale-110">
+                <span className="flex h-8 w-8 mx-auto items-center justify-center rounded-full bg-[#F98F1F] text-white transition-transform group-hover:scale-110">
                   <Play className="h-4 w-4" />
                 </span>
                 <span className="text-sm font-medium text-white md:text-base">Watch the Film</span>
@@ -257,13 +273,13 @@ export default function CareersPage() {
             </motion.div>
           </div>
 
-          <motion.div
+          {/*<motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <h2 className="text-3xl font-bold text-white md:text-4xl">Work at QCELL</h2>
-          </motion.div>
+  </motion.div>*/}
         </div>
 
         {/* Video Controls */}
@@ -375,6 +391,10 @@ export default function CareersPage() {
           </motion.div>
         )}
       </AnimatePresence>
+      
     </main>
+    </>
+
+    
   )
 }

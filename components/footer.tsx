@@ -1,7 +1,6 @@
 "use client"
 
-import type React from "react"
-
+import React from 'react'
 import { useState, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -29,19 +28,9 @@ export default function Footer() {
   const isInView = useInView(footerRef, { once: true, amount: 0.1 })
 
   const toggleSection = (section: string) => {
-    if (expandedSection === section) {
-      setExpandedSection(null)
-    } else {
-      setExpandedSection(section)
-    }
+    console.log("Toggle section:", section, "Current expanded:", expandedSection)
+    setExpandedSection(expandedSection === section ? null : section)
   }
-
-  {/*const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle newsletter subscription
-    alert(`Thank you for subscribing with: ${email}`)
-    setEmail("")
-  }*/}
 
   const footerSections = [
     {
@@ -235,7 +224,7 @@ export default function Footer() {
             </form>
           </motion.div>
         </div>*/}
-      </div> 
+      </div>
 
       <div className="container mx-auto px-4 py-12 md:px-6 md:py-16">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
@@ -292,7 +281,7 @@ export default function Footer() {
           ))}
 
           {/* Mobile Footer Accordions */}
-          <div className="col-span-full lg:hidden">
+          <div className="z-40 col-span-full lg:hidden">
             {footerSections.map((section) => (
               <div key={section.title} className="border-b border-gray-200">
                 <button
@@ -307,9 +296,10 @@ export default function Footer() {
                     <ChevronDown className="h-5 w-5 text-gray-500" />
                   </motion.div>
                 </button>
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {expandedSection === section.title && (
                     <motion.div
+                      key={`accordion-${section.title}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -343,7 +333,7 @@ export default function Footer() {
         </div>
 
         {/* Contact and Social */}
-        <div className="mt-12 grid gap-8 border-t border-gray-200 pt-8 md:grid-cols-2">
+        <div className="mt-12 z-40 grid gap-8 border-t border-gray-200 pt-8 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -369,7 +359,7 @@ export default function Footer() {
                 whileHover={{ x: 5 }}
               >
                 <Phone className="mr-3 h-5 w-5 text-[#F98F1F]" />
-                <span className="text-sm text-gray-600">+232 88 000000</span>
+                <span className="text-sm text-gray-600">+232 32 000000</span>
               </motion.li>
               <motion.li
                 className="flex items-center"
@@ -393,11 +383,11 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-semibold text-gray-900">Follow Us</h3>
             <div className="flex space-x-4">
               {[
-                { icon: <Facebook className="h-5 w-5" />, href: "#" },
-                { icon: <Twitter className="h-5 w-5" />, href: "#" },
-                { icon: <Instagram className="h-5 w-5" />, href: "#" },
-                { icon: <Linkedin className="h-5 w-5" />, href: "#" },
-                { icon: <Youtube className="h-5 w-5" />, href: "#" },
+                { icon: <Facebook className="h-5 w-5" />, href: "https://www.facebook.com/QcellSL" },
+                { icon: <Twitter className="h-5 w-5" />, href: "https://x.com/QcellSL" },
+                { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/qcellsl" },
+                { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/qcell-sl" },
+                { icon: <Youtube className="h-5 w-5" />, href: "https://www.youtube.com/channel/UCA3CZ0WGrqtwjRvX1nWVd_w" },
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -409,6 +399,7 @@ export default function Footer() {
                   whileHover="hover"
                   whileTap="tap"
                   custom={index}
+                  target='_blank'
                 >
                   {social.icon}
                 </motion.a>
@@ -421,13 +412,7 @@ export default function Footer() {
                 transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <Image
-                  src="/images/logo.jpg"
-                  alt="Qcell Logo"
-                  width={120}
-                  height={50}
-                  className="h-12 w-auto"
-                />
+                <Image src="/images/logo.jpg" alt="Qcell Logo" width={120} height={50} className="h-12 w-auto" />
               </motion.div>
             </div>
           </motion.div>
@@ -463,5 +448,3 @@ export default function Footer() {
     </footer>
   )
 }
-
-

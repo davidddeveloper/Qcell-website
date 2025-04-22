@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from "react"
 import mapboxgl from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Wifi, Signal, Map, ChevronRight, ChevronDown, ChevronUp } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Feature, Point } from "geojson";
@@ -120,12 +120,14 @@ const roamingPartners: RoamingPartner[] = [
 
 export default function EnhancedCoverageMap() {
   const mapContainer = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const map = useRef<mapboxgl.Map | null>(null)
   const [selectedArea, setSelectedArea] = useState<CoverageArea | null>(null)
   const [mapLoaded, setMapLoaded] = useState(false)
   const [showList, setShowList] = useState(false)
   const [activeTab, setActiveTab] = useState<"map" | "list">("map")
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false)
+  const isInView = useInView(containerRef, { once: false, amount: 0.2 })
 
   const coverageStats = {
     total: coverageAreas.length,
@@ -161,9 +163,9 @@ export default function EnhancedCoverageMap() {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/dark-v11", // Darkmode: mapbox://styles/mapbox/dark-v11 mapbox://styles/mapbox/satellite-streets-v12
-      center: [-11.7799, 8.4606],
-      zoom: 7,
-      pitch: 45,
+      center: [0, 0], //[-11.7799, 8.4606],
+      zoom: 0, //7
+      pitch: 45, //45
       bearing: 0,
     })
 
@@ -427,8 +429,40 @@ export default function EnhancedCoverageMap() {
     }
   }, [mapLoaded])
 
+  // in view perform the initial animation to highlight coverage areas
+  useEffect(() => {
+    if (mapLoaded) {
+      coverageAreas.forEach((area, index) => {
+        setTimeout(() => {
+          map.current?.flyTo({
+            center: area.coordinates,
+            zoom: 9,
+            pitch: 60,
+            bearing: Math.random() * 60 - 30,
+            duration: 2000,
+            essential: true,
+          })
+        }, index * 300)
+      })
+
+      // Return to overview after showcasing areas
+      setTimeout(
+        () => {
+          map.current?.flyTo({
+            center: [-11.7799, 8.4606],
+            zoom: 7,
+            pitch: 45,
+            bearing: 0,
+            duration: 3000,
+          })
+        },
+        coverageAreas.length * 300 + 1000,
+      )
+    }
+  }, [isInView])
+
   return (
-    <div className="relative h-[600px] w-full overflow-hidden bg-[#1a1a1a] lg:w-[104%] lg:-ml-3"> {/* rounded-xl */}
+    <div ref={containerRef} className="relative h-[600px] w-full overflow-hidden bg-[#1a1a1a] lg:w-full xl:h-[800px]"> {/* rounded-xl */}
       <style jsx global>{`
         .coverage-marker {
           width: 30px;

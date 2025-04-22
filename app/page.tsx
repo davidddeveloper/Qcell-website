@@ -64,12 +64,12 @@ export default function Home() {
           >
             
             <Cursor />
-            <section className="relative">
+            <section className="relative w-full">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5 }}
-                className="container mx-auto py-10" // px-4 py-16
+                className="w-full py-10" // px-4 py-16
               >
                 {/*<div className="mb-12 text-center">
                   <h2 className="text-4xl font-bold text-gray-900">Network Coverage</h2>
