@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Play, Pause, X, Volume2, Maximize, Minimize } from "lucide-react"
-import Navigation from "@/components/nav" // Assuming your navigation component is at this path
+import Navigation from "@/components/nav" 
 
 export default function CareersPage() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -196,7 +196,7 @@ export default function CareersPage() {
   return (
     <>
       {/* Navigation */}
-      <Navigation />
+      <Navigation page="careers"/>
     <main className="min-h-screen bg-black text-white">
 
       {/* Main Content */}
