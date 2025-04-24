@@ -29,13 +29,13 @@ export interface Offering {
       details: {
         title: "Power Your Connection",
         description:
-          "QPower is our innovative power solution that puts the power in your hands. With just a few clicks, you can recharge your phone or help someone else stay connected.",
+          "QPower is our innovative power solution that puts the power in your hands. With just a few clicks, you can buy EDSA Topup and instantly powers your home.",
         benefits: [
-          "Instant credit delivery",
+          "Instant credit delivery. No waiting",
           "Secure transactions",
-          "Multiple payment options",
+          "Buy for yourself or someone else",
           "Transaction history",
-          "Favorite numbers saving",
+          "Save your meter number",
         ],
       },
     },
@@ -54,11 +54,10 @@ export interface Offering {
         description:
           "TROS MI TOP-UP lets you Tros credit when you needs it the most. It's the perfect way to help loved ones stay connected, no matter where they are.",
         benefits: [
-          "No registration needed",
+          "No interest fee. Pay what you tros",
           "Instant credit transfer",
           "Available 24/7",
-          "Minimal transfer fees",
-          "Support multiple numbers",
+          "Pay anytime",
         ],
       },
     },
@@ -80,7 +79,6 @@ export interface Offering {
           "All popular platforms included",
           "Flexible duration options",
           "Data optimization",
-          "Auto-renewal available",
           "Bundle sharing enabled",
         ],
       },
