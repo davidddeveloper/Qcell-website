@@ -6,6 +6,8 @@ import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Play, Pause, X, Volume2, Maximize, Minimize } from "lucide-react"
 import Navigation from "@/components/nav" 
+import AfricaPanel from "@/components/inclusion-panel"
+import WorkAtQcell from "@/components/work-at-qcell"
 
 export default function CareersPage() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -197,202 +199,208 @@ export default function CareersPage() {
     <>
       {/* Navigation */}
       <Navigation page="careers"/>
-    <main className="min-h-screen bg-black text-white">
+      <header className="min-h-screen bg-black text-white">
 
-      {/* Main Content */}
-      <div className="relative z-40 min-h-screen">
-        {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video
-            ref={videoRef}
-            className="h-full w-full object-cover"
-            poster="/images/careersatqcell.jpg"
-            loop
-            muted
-            playsInline
-          >
-            <source src="/videos/careers-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-[#F98F1F] mix-blend-overlay"></div>
-        </div>
-
-        {/* Content */}
-        <div ref={sectionRef} className="relative z-10 flex min-h-screen flex-col justify-center items-center px-6 py-24 md:px-12">
-          {/*<div className="mt-20">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl font-bold text-white md:text-4xl"
-            >
-              Life at QCELL
-            </motion.h2>
-  </div>*/}
-
-          <div>
+        {/* Hero Content */}
+        <div className="relative z-40 min-h-screen">
+          {/* Background Video */}
+          <div className="absolute inset-0 z-0">
             <video
-              className="h-32 w-48 object-cover"
+              ref={videoRef}
+              className="h-full w-full object-cover"
               poster="/images/careersatqcell.jpg"
               loop
               muted
               playsInline
-              autoPlay
             >
-              <source src="/videos/apple.mp4" type="video/mp4" />
+              <source src="/videos/careers-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-[#F98F1F] mix-blend-overlay"></div>
           </div>
 
-          <div className="flex flex-col items-center justify-center text-center md:items-start md:text-left">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-8 text-5xl font-bold text-white md:text-7xl"
-            >
-              Join us. Be you.
-            </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mx-auto"
-            >
-              <button
-                onClick={openVideoModal}
-                className="group mx-auto flex items-center space-x-3 rounded-full bg-white/20 px-6 py-3 backdrop-blur-sm transition-all hover:bg-white/30"
+          {/* Content */}
+          <div ref={sectionRef} className="relative z-10 flex min-h-screen flex-col justify-center items-center px-6 py-24 md:px-12">
+            {/*<div className="mt-20">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-3xl font-bold text-white md:text-4xl"
               >
-                <span className="flex h-8 w-8 mx-auto items-center justify-center rounded-full bg-[#F98F1F] text-white transition-transform group-hover:scale-110">
-                  <Play className="h-4 w-4" />
-                </span>
-                <span className="text-sm font-medium text-white md:text-base">Watch the Film</span>
-              </button>
-            </motion.div>
-          </div>
+                Life at QCELL
+              </motion.h2>
+    </div>*/}
 
-          {/*<motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            <h2 className="text-3xl font-bold text-white md:text-4xl">Work at QCELL</h2>
-  </motion.div>*/}
-        </div>
-
-        {/* Video Controls */}
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          onClick={toggleVideo}
-          className="absolute bottom-8 right-8 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-all hover:bg-black/70"
-        >
-          {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-        </motion.button>
-      </div>
-
-      {/* Video Modal */}
-      <AnimatePresence>
-        {showVideoModal && (
-          <motion.div
-            ref={modalRef}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onMouseMove={handleMouseMove}
-          >
-            {/* Close button - always visible */}
-            <button
-              onClick={closeVideoModal}
-              className={`absolute left-6 top-6 z-10 text-white hover:opacity-80 ${isFullscreen ? "opacity-0 hover:opacity-100" : ""}`}
-            >
-              <X className="h-6 w-6" />
-            </button>
-
-            {/* Video container */}
-            <div ref={videoContainerRef} className="relative h-full w-full">
-              {/* Video */}
+            <div>
               <video
-                ref={modalVideoRef}
-                className="h-full w-full object-contain"
-                controls={false}
+                className="h-32 w-48 object-cover"
+                poster="/images/careersatqcell.jpg"
+                loop
+                muted
                 playsInline
-                onClick={toggleModalVideo}
-                onTimeUpdate={handleTimeUpdate}
-                onLoadedMetadata={handleLoadedMetadata}
+                autoPlay
               >
-                <source src="/videos/careers-video.mp4" type="video/mp4" />
+                <source src="/videos/apple.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+            </div>
 
-              {/* Center play button - only show when paused */}
-              {!isModalPlaying && (
-                <div
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
-                  onClick={toggleModalVideo}
+            <div className="flex flex-col items-center justify-center text-center md:items-start md:text-left">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="mb-8 text-5xl font-bold text-white md:text-7xl"
+              >
+                Join us. Be you.
+              </motion.h1>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="mx-auto"
+              >
+                <button
+                  onClick={openVideoModal}
+                  className="group mx-auto flex items-center space-x-3 rounded-full bg-white/20 px-6 py-3 backdrop-blur-sm transition-all hover:bg-white/30"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                    <Play className="h-8 w-8 text-white" />
-                  </div>
-                </div>
-              )}
+                  <span className="flex h-8 w-8 mx-auto items-center justify-center rounded-full bg-[#F98F1F] text-white transition-transform group-hover:scale-110">
+                    <Play className="h-4 w-4" />
+                  </span>
+                  <span className="text-sm font-medium text-white md:text-base">Watch the Film</span>
+                </button>
+              </motion.div>
+            </div>
 
-              {/* Video controls - show/hide based on mouse movement */}
-              <AnimatePresence>
-                {showControls && (
-                  <motion.div
-                    className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.2 }}
+            {/*<motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <h2 className="text-3xl font-bold text-white md:text-4xl">Work at QCELL</h2>
+    </motion.div>*/}
+          </div>
+
+          {/* Video Controls */}
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            onClick={toggleVideo}
+            className="absolute bottom-8 right-8 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-all hover:bg-black/70"
+          >
+            {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+          </motion.button>
+        </div>
+
+        {/* Video Modal */}
+        <AnimatePresence>
+          {showVideoModal && (
+            <motion.div
+              ref={modalRef}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onMouseMove={handleMouseMove}
+            >
+              {/* Close button - always visible */}
+              <button
+                onClick={closeVideoModal}
+                className={`absolute left-6 top-6 z-10 text-white hover:opacity-80 ${isFullscreen ? "opacity-0 hover:opacity-100" : ""}`}
+              >
+                <X className="h-6 w-6" />
+              </button>
+
+              {/* Video container */}
+              <div ref={videoContainerRef} className="relative h-full w-full">
+                {/* Video */}
+                <video
+                  ref={modalVideoRef}
+                  className="h-full w-full object-contain"
+                  controls={false}
+                  playsInline
+                  onClick={toggleModalVideo}
+                  onTimeUpdate={handleTimeUpdate}
+                  onLoadedMetadata={handleLoadedMetadata}
+                >
+                  <source src="/videos/careers-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {/* Center play button - only show when paused */}
+                {!isModalPlaying && (
+                  <div
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+                    onClick={toggleModalVideo}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4">
-                        <button className="text-white hover:opacity-80" onClick={toggleModalVideo}>
-                          {isModalPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-                        </button>
-                        <button className="text-white hover:opacity-80">
-                          <Volume2 className="h-5 w-5" />
-                        </button>
-                        <span className="text-sm text-white">
-                          {formatTime(currentTime)} / {formatTime(duration)}
-                        </span>
-                      </div>
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                      <Play className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                )}
 
-                      <div className="mx-4 flex-1 cursor-pointer" onClick={handleSeek}>
-                        <div className="h-1 w-full rounded-full bg-white/30">
-                          <div
-                            className="h-full rounded-full bg-white"
-                            style={{ width: `${(currentTime / duration) * 100}%` }}
-                          ></div>
+                {/* Video controls - show/hide based on mouse movement */}
+                <AnimatePresence>
+                  {showControls && (
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
+                          <button className="text-white hover:opacity-80" onClick={toggleModalVideo}>
+                            {isModalPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+                          </button>
+                          <button className="text-white hover:opacity-80">
+                            <Volume2 className="h-5 w-5" />
+                          </button>
+                          <span className="text-sm text-white">
+                            {formatTime(currentTime)} / {formatTime(duration)}
+                          </span>
+                        </div>
+
+                        <div className="mx-4 flex-1 cursor-pointer" onClick={handleSeek}>
+                          <div className="h-1 w-full rounded-full bg-white/30">
+                            <div
+                              className="h-full rounded-full bg-white"
+                              style={{ width: `${(currentTime / duration) * 100}%` }}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <button
+                            className="text-white hover:opacity-80"
+                            onClick={toggleFullscreen}
+                            aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+                          >
+                            {isFullscreen ? <Minimize className="h-5 w-5" /> : <Maximize className="h-5 w-5" />}
+                          </button>
                         </div>
                       </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
+      </header>
 
-                      <div>
-                        <button
-                          className="text-white hover:opacity-80"
-                          onClick={toggleFullscreen}
-                          aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
-                        >
-                          {isFullscreen ? <Minimize className="h-5 w-5" /> : <Maximize className="h-5 w-5" />}
-                        </button>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      
-    </main>
+      <main>
+        <AfricaPanel />
+
+        <WorkAtQcell />
+      </main>
     </>
 
     
