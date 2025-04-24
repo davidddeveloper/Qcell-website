@@ -44,6 +44,7 @@ export default function WhatDrivesUs() {
   }, [smoothProgress])
 
   return (
+    <>
     <div ref={containerRef} className="relative h-[300vh] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
       <SectionHeader currentSection={currentSection} />
 
@@ -55,5 +56,6 @@ export default function WhatDrivesUs() {
         </div>
       </div>
     </div>
+    </>
   )
 }

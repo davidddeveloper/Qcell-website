@@ -8,12 +8,14 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ currentSection }: SectionHeaderProps) {
   return (
+    <>
     <motion.div
       className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5 }}
     >
+
       <div className="bg-white/10 backdrop-blur-md px-6 py-2 rounded-full">
         <div className="flex space-x-8 text-white/80 font-medium">
           <motion.div className={`relative px-2 ${currentSection === "mission" ? "text-white" : "text-white/50"}`}>
@@ -51,5 +53,8 @@ export function SectionHeader({ currentSection }: SectionHeaderProps) {
         </div>
       </div>
     </motion.div>
+
+    
+    </>
   )
 }

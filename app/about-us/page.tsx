@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion"
 import Image from "next/image"
 import Navigation from "@/components/nav"
 import Timeline from "@/components/timeline/timeline"
+import { VerticalAccordion } from "@/components/vertical-accordion"
+import WhatDrivesUs from "@/components/drive/what-drives-us"
 
 export default function AboutPage() {
   const [windowHeight, setWindowHeight] = useState(0)
@@ -146,6 +148,8 @@ export default function AboutPage() {
             Rooted in our people, our culture, and our future
           </motion.p>
         </div>
+
+        <div className="absolute inset-0 bg-[#F98F1F] opacity-25"></div>
       </section>
 
       {/* Hero Section End */}
@@ -153,7 +157,8 @@ export default function AboutPage() {
       {/* Timeline Section */}
       <Timeline />
 
-      
+    {/*<VerticalAccordion />*/}
+    {/*<WhatDrivesUs />*/}
     </div>
   )
 }

@@ -215,7 +215,7 @@ export default function CareersPage() {
             Your browser does not support the video tag.
           </video>
           {/* Overlay */}
-          <div className="absolute inset-0 bg-[#ff8400] opacity-25"></div>
+          <div className="absolute inset-0 bg-[#F98F1F] mix-blend-overlay"></div>
         </div>
 
         {/* Content */}
