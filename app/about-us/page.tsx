@@ -7,10 +7,8 @@ import Navigation from "@/components/nav"
 import Timeline from "@/components/timeline/timeline"
 
 export default function AboutPage() {
-  // State to track window height
 
   useEffect(() => {
-    // safe to use document or window here
     document.title = 'About Us'
   }, [])
 

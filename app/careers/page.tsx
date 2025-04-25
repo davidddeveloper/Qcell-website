@@ -198,6 +198,11 @@ export default function CareersPage() {
     }
   }, [controlsTimeout])
 
+  // set the document title
+  useEffect(() => {
+    document.title = 'Careers at Qcell'
+  }, [])
+
   return (
     <>
       {/* Navigation */}
