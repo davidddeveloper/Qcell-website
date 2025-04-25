@@ -7,6 +7,13 @@ import Navigation from "@/components/nav"
 import Timeline from "@/components/timeline/timeline"
 
 export default function AboutPage() {
+  // State to track window height
+
+  useEffect(() => {
+    // safe to use document or window here
+    document.title = 'About Us'
+  }, [])
+
   const [windowHeight, setWindowHeight] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -159,10 +166,12 @@ export default function AboutPage() {
     {/*<VerticalAccordion />*/}
     {/*<WhatDrivesUs />*/}
     </div>
-    <div
-      className="hidden backdrop-filter z-40 bg-black/40 absolute inset-0 transition-all"
-      style={{ height: `${document.body.scrollHeight}px` }}
-    ></div>
+    {typeof window !== "undefined" && (
+      <div
+        className="hidden backdrop-filter z-40 bg-black/40 absolute inset-0 transition-all"
+        style={{ height: `${document.body.scrollHeight}px` }}
+      ></div>
+    )}
 
     </>
   )
