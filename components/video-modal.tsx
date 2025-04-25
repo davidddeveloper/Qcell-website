@@ -140,7 +140,7 @@ export default function VideoModal({source, isModalOpen, onClose}: { source: str
       document.exitFullscreen()
     } else if ((document as Document & { webkitExitFullscreen?: () => void }).webkitExitFullscreen) {
       /* Safari */
-      ;(document as any).webkitExitFullscreen()
+      ;(document as Document & { webkitExitFullscreen?: () => void }).webkitExitFullscreen?.()
     } else if ((document as Document & { msExitFullscreen?: () => void }).msExitFullscreen) {
       /* IE11 */
       ;(document as Document & { msExitFullscreen?: () => void }).msExitFullscreen?.()
@@ -152,8 +152,8 @@ export default function VideoModal({source, isModalOpen, onClose}: { source: str
     const handleFullscreenChange = () => {
       setIsFullscreen(
         document.fullscreenElement !== null ||
-          (document as any).webkitFullscreenElement !== null ||
-          (document as any).msFullscreenElement !== null,
+          (document as Document & { webkitFullscreenElement?: () => void }).webkitFullscreenElement !== null ||
+          (document as Document & { msFullscreenElement?: () => void }).msFullscreenElement !== null,
       )
     }
 

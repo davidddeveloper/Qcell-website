@@ -173,8 +173,8 @@ export default function CareersPage() {
     const handleFullscreenChange = () => {
       setIsFullscreen(
         document.fullscreenElement !== null ||
-          (document as any).webkitFullscreenElement !== null ||
-          (document as any).msFullscreenElement !== null,
+          (document as Document & { webkitFullscreenElement?: () => void }).webkitFullscreenElement !== null ||
+          (document as Document & { msFullscreenElement?: () => void }).msFullscreenElement !== null,
       )
     }
 
