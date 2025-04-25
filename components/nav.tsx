@@ -485,7 +485,7 @@ export default function Navigation({page}: {page: string}) {
       </motion.div>
       {page == 'careers' && (
         
-        <motion.header className="hidden sm:block fixed w-[90%] mx-auto text-white top-0 z-50 flex items-center justify-between"
+        <motion.header className="hidden fixed w-[90%] mx-auto text-white top-0 z-50 sm:flex items-center justify-between"
           style={{
             marginTop: isScrolled ? "55px" : "105px",
             width: isScrolled ? "90%" : "90%",
