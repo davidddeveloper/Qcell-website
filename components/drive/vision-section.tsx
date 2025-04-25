@@ -9,7 +9,7 @@ interface VisionSectionProps {
   isMobile: boolean
 }
 
-export function VisionSection({ progress, isMobile }: VisionSectionProps) {
+export function VisionSection({ progress }: VisionSectionProps) {
   // Transform progress to x position (slide in from right, out to left)
   const x = useTransform(progress, [0, 0.5, 1], ["100%", "0%", "-100%"])
 

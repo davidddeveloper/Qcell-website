@@ -149,10 +149,10 @@ export default function CareersPage() {
       element.requestFullscreen()
     } else if ((element as HTMLElement & { webkitRequestFullscreen?: () => void }).webkitRequestFullscreen) {
       /* Safari */
-      ;(element as any).webkitRequestFullscreen()
+      ;(element as HTMLElement & { webkitRequestFullscreen?: () => void }).webkitRequestFullscreen?.()
     } else if ((element as HTMLElement & { msRequestFullscreen?: () => void }).msRequestFullscreen) {
       /* IE11 */
-      ;(element as any).msRequestFullscreen()
+      ;(element as HTMLElement & { msRequestFullscreen?: () => void }).msRequestFullscreen?.()
     }
   }
 
@@ -161,10 +161,10 @@ export default function CareersPage() {
       document.exitFullscreen()
     } else if ((document as Document & { webkitExitFullscreen?: () => void }).webkitExitFullscreen) {
       /* Safari */
-      ;(document as any).webkitExitFullscreen()
+      ;(document as Document & { webkitExitFullscreen?: () => void }).webkitExitFullscreen?.()
     } else if ((document as Document & { msExitFullscreen?: () => void }).msExitFullscreen) {
       /* IE11 */
-      ;(document as any).msExitFullscreen()
+      ;(document as Document & { msExitFullscreen?: () => void }).msExitFullscreen?.()
     }
   }
 
