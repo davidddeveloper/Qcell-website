@@ -29,6 +29,10 @@ const navItems: NavItem[] = [
         content: {
         heading: "Latest Updates",
         subheading: "Stay up to date with our newest offerings",
+        links: [
+          {title: "About Qcell", href: "/about-us"},
+          {title: "Careers", href: "/careers"},
+        ]
         },
     },
     {
@@ -173,10 +177,8 @@ export default function Navigation({page}: {page: string}) {
   const [activeItem, setActiveItem] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null)
-  const [currentSlide, setCurrentSlide] = useState(0)
   const [isScrolled, setIsScrolled] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
-  const heroRef = useRef<HTMLDivElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const controls = useAnimation()
   // Add a new state for the search overlay
@@ -218,9 +220,9 @@ export default function Navigation({page}: {page: string}) {
     }
 
     document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside)
+      }
   }, [])
 
   // Handle dropdown animation

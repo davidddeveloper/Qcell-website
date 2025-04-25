@@ -67,6 +67,10 @@ const navItems: NavItem[] = [
     content: {
       heading: "Latest Updates",
       subheading: "Stay up to date with our newest offerings",
+      links: [
+        {title: "About Qcell", href: "/about-us"},
+        {title: "Careers", href: "/careers"},
+      ]
     },
   },
   {

@@ -6,9 +6,11 @@ import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Play, Pause, X, Volume2, Maximize, Minimize } from "lucide-react"
 import Navigation from "@/components/nav" 
-import AfricaPanel from "@/components/inclusion-panel"
+import InclusionPanel from "@/components/inclusion-panel"
 import WorkAtQcell from "@/components/work-at-qcell"
 import LifeAtQcell from "@/components/life-at-qcell"
+import MakeADifference from "@/components/make-difference"
+import Footer from "@/components/footer"
 
 export default function CareersPage() {
   const [isPlaying, setIsPlaying] = useState(true)
@@ -237,14 +239,14 @@ export default function CareersPage() {
 
             <div>
               <video
-                className="h-32 w-48 object-cover"
+                className="h-32 w-48 object-cover rounded-md"
                 poster="/images/careersatqcell.jpg"
                 loop
                 muted
                 playsInline
                 autoPlay
               >
-                <source src="/videos/apple.mp4" type="video/mp4" />
+                <source src="/videos/careers-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -399,12 +401,23 @@ export default function CareersPage() {
       </header>
 
       <main>
-        <AfricaPanel />
+        <InclusionPanel />
 
         <WorkAtQcell />
 
         <LifeAtQcell />
+
+        <MakeADifference />
       </main>
+
+      <Footer />
+
+      <div
+        className="hidden backdrop-filter z-40 bg-black/40 absolute inset-0 transition-all"
+        style={{ height: `${document.body.scrollHeight}px` }}
+      ></div>
+
+
     </>
 
     

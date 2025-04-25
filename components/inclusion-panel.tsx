@@ -1,10 +1,10 @@
 import Image from "next/image"
 
-export default function AfricaPanel() {
+export default function InclusionPanel() {
   return (
     <section className="w-full">
       <div className="grid grid-cols-1 sm:grid-cols-2">
-        <div className="col-span-1 md:col-span-2 bg-gradient-to-br from-[#CD7F32] to-[#CF9E0B] p-12 md:p-20">
+        <div className="col-span-2 md:col-span-2 bg-gradient-to-br from-[#CD7F32] to-[#CF9E0B] p-12 md:p-20">
           <p className="text-white text-2xl font-bold w-[90%] mx-auto md:text-3xl">
             This is where every voice matters, and every role plays a part in shaping how people connect across The
             Gambia, Sierra Leone and beyond. We're a team of bold thinkers, creators, and doers. We believe in

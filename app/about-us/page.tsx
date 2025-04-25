@@ -56,6 +56,7 @@ export default function AboutPage() {
   }, [])
 
   return (
+    <>
     <div ref={containerRef} className="min-h-screen">
       {/* Header */}
     
@@ -160,5 +161,11 @@ export default function AboutPage() {
     {/*<VerticalAccordion />*/}
     {/*<WhatDrivesUs />*/}
     </div>
+    <div
+      className="hidden backdrop-filter z-40 bg-black/40 absolute inset-0 transition-all"
+      style={{ height: `${document.body.scrollHeight}px` }}
+    ></div>
+
+    </>
   )
 }
