@@ -1,17 +1,9 @@
-"use client"
-
-import type React from "react"
-
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { Play, Pause, X, Volume2, Maximize, Minimize } from "lucide-react"
-import Navigation from "@/components/nav" 
-import AfricaPanel from "@/components/inclusion-panel"
-import WorkAtQcell from "@/components/work-at-qcell"
-import LifeAtQcell from "@/components/life-at-qcell"
 
-export default function CareersPage() {
-  const [isPlaying, setIsPlaying] = useState(true)
+
+export default function VideoModal({source, isModalOpen, onClose}: { source: string, isModalOpen: boolean, onClose?: () => void } ) {
   const [isModalPlaying, setIsModalPlaying] = useState(false)
   const [showVideoModal, setShowVideoModal] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
@@ -20,38 +12,19 @@ export default function CareersPage() {
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [controlsTimeout, setControlsTimeout] = useState<NodeJS.Timeout | null>(null)
 
-  const videoRef = useRef<HTMLVideoElement>(null)
   const modalVideoRef = useRef<HTMLVideoElement>(null)
   const videoContainerRef = useRef<HTMLDivElement>(null)
-  const sectionRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(sectionRef, { once: false, amount: 0.3 })
 
-  // Format time in MM:SS format
   const formatTime = (timeInSeconds: number) => {
     const minutes = Math.floor(timeInSeconds / 60)
     const seconds = Math.floor(timeInSeconds % 60)
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
   }
 
-  const toggleVideo = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause()
-      } else {
-        videoRef.current.play()
-      }
-      setIsPlaying(!isPlaying)
-    }
-  }
 
   const openVideoModal = () => {
     setShowVideoModal(true)
-    // Pause the background video if it's playing
-    if (videoRef.current && isPlaying) {
-      videoRef.current.pause()
-      setIsPlaying(false)
-    }
 
     // Play the modal video after a short delay
     setTimeout(() => {
@@ -66,6 +39,13 @@ export default function CareersPage() {
     }, 500)
   }
 
+  useEffect(() => {
+    if (isModalOpen) {
+      openVideoModal()
+    }
+
+  }, [isModalOpen])
+
   const closeVideoModal = () => {
     // Exit fullscreen if active when closing
     if (isFullscreen) {
@@ -77,6 +57,7 @@ export default function CareersPage() {
       setIsModalPlaying(false)
     }
     setShowVideoModal(false)
+    onClose?.()
   }
 
   const toggleModalVideo = () => {
@@ -197,109 +178,7 @@ export default function CareersPage() {
   }, [controlsTimeout])
 
   return (
-    <>
-      {/* Navigation */}
-      <Navigation page="careers"/>
-      <header className="min-h-screen bg-black text-white">
-
-        {/* Hero Content */}
-        <div className="relative z-40 min-h-screen">
-          {/* Background Video */}
-          <div className="absolute inset-0 z-0">
-            <video
-              ref={videoRef}
-              className="h-full w-full object-cover"
-              poster="/images/careersatqcell.jpg"
-              loop
-              muted
-              playsInline
-              autoPlay
-            >
-              <source src="/videos/careers-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-[#F98F1F] mix-blend-overlay"></div>
-          </div>
-
-          {/* Content */}
-          <div ref={sectionRef} className="relative z-10 flex min-h-screen flex-col justify-center items-center px-6 py-24 md:px-12">
-            {/*<div className="mt-20">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-3xl font-bold text-white md:text-4xl"
-              >
-                Life at QCELL
-              </motion.h2>
-    </div>*/}
-
-            <div>
-              <video
-                className="h-32 w-48 object-cover"
-                poster="/images/careersatqcell.jpg"
-                loop
-                muted
-                playsInline
-                autoPlay
-              >
-                <source src="/videos/apple.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
-            <div className="flex flex-col items-center justify-center text-center md:items-start md:text-left">
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="mb-8 text-5xl font-bold text-white md:text-7xl"
-              >
-                Join us. Be you.
-              </motion.h1>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="mx-auto"
-              >
-                <button
-                  onClick={openVideoModal}
-                  className="group mx-auto flex items-center space-x-3 rounded-full bg-white/20 px-6 py-3 backdrop-blur-sm transition-all hover:bg-white/30"
-                >
-                  <span className="flex h-8 w-8 mx-auto items-center justify-center rounded-full bg-[#F98F1F] text-white transition-transform group-hover:scale-110">
-                    <Play className="h-4 w-4" />
-                  </span>
-                  <span className="text-sm font-medium text-white md:text-base">Watch the Film</span>
-                </button>
-              </motion.div>
-            </div>
-
-            {/*<motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <h2 className="text-3xl font-bold text-white md:text-4xl">Work at QCELL</h2>
-    </motion.div>*/}
-          </div>
-
-          {/* Video Controls */}
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            onClick={toggleVideo}
-            className="absolute bottom-8 right-8 z-20 flex h-12 w-12 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-all hover:bg-black/70"
-          >
-            {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
-          </motion.button>
-        </div>
-
-        {/* Video Modal */}
-        <AnimatePresence>
+    <AnimatePresence>
           {showVideoModal && (
             <motion.div
               ref={modalRef}
@@ -330,7 +209,7 @@ export default function CareersPage() {
                   onTimeUpdate={handleTimeUpdate}
                   onLoadedMetadata={handleLoadedMetadata}
                 >
-                  <source src="/videos/careers-video.mp4" type="video/mp4" />
+                  <source src={source} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
 
@@ -395,18 +274,5 @@ export default function CareersPage() {
             </motion.div>
           )}
         </AnimatePresence>
-        
-      </header>
-
-      <main>
-        <AfricaPanel />
-
-        <WorkAtQcell />
-
-        <LifeAtQcell />
-      </main>
-    </>
-
-    
   )
 }
