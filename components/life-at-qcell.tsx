@@ -40,7 +40,7 @@ export default function LifeAtQcell() {
 
         <div className="absolute top-2/4 -translate-y-2/4 left-20 right-0 p-8">
           <blockquote className="mb-2">
-            <p className="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold md:max-w-md">"'Be creative', was my welcome message."</p>
+            <p className="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold md:max-w-md">&quot;&apos;Be creative&apos;, was my welcome message.&quot;</p>
           </blockquote>
 
           <p className="text-xs my-10 md:text-[20px] md:my-14 lg:my-24 ">David, Software Intern</p>

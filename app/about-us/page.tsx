@@ -5,8 +5,6 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion"
 import Image from "next/image"
 import Navigation from "@/components/nav"
 import Timeline from "@/components/timeline/timeline"
-import { VerticalAccordion } from "@/components/vertical-accordion"
-import WhatDrivesUs from "@/components/drive/what-drives-us"
 
 export default function AboutPage() {
   const [windowHeight, setWindowHeight] = useState(0)

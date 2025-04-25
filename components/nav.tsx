@@ -5,7 +5,7 @@ import type React from "react"
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
 import Image from "next/image"
-import { ChevronDown, ChevronRight, Menu, Search, X, ChevronLeft } from "lucide-react"
+import { ChevronDown, ChevronRight, Menu, X } from "lucide-react"
 
 // Placeholder for images
 const QcellLogo = "/images/logo.jpg"

@@ -9,7 +9,7 @@ interface MissionSectionProps {
   isMobile: boolean
 }
 
-export function MissionSection({ progress, isMobile }: MissionSectionProps) {
+export function MissionSection({ progress }: MissionSectionProps) {
   // Transform progress to x position (slide in from right, out to left)
   const x = useTransform(progress, [0, 0.5, 1], ["100%", "0%", "-100%"])
 

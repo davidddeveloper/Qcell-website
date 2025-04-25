@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence, useInView } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Play, Pause, X, Volume2, Maximize, Minimize } from "lucide-react"
 
 
@@ -126,10 +126,10 @@ export default function VideoModal({source, isModalOpen, onClose}: { source: str
 
     if (element.requestFullscreen) {
       element.requestFullscreen()
-    } else if ((element as any).webkitRequestFullscreen) {
+    } else if ((element as HTMLElement & { webkitRequestFullscreen?: () => void }).webkitRequestFullscreen) {
       /* Safari */
       ;(element as any).webkitRequestFullscreen()
-    } else if ((element as any).msRequestFullscreen) {
+    } else if ((element as HTMLElement & { msRequestFullscreen?: () => void }).msRequestFullscreen) {
       /* IE11 */
       ;(element as any).msRequestFullscreen()
     }
@@ -138,10 +138,10 @@ export default function VideoModal({source, isModalOpen, onClose}: { source: str
   const exitFullscreen = () => {
     if (document.exitFullscreen) {
       document.exitFullscreen()
-    } else if ((document as any).webkitExitFullscreen) {
+    } else if ((document as Document & { webkitExitFullscreen?: () => void }).webkitExitFullscreen) {
       /* Safari */
       ;(document as any).webkitExitFullscreen()
-    } else if ((document as any).msExitFullscreen) {
+    } else if ((document as Document & { msExitFullscreen?: () => void }).msExitFullscreen) {
       /* IE11 */
       ;(document as any).msExitFullscreen()
     }

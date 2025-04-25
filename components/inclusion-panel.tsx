@@ -7,7 +7,7 @@ export default function InclusionPanel() {
         <div className="col-span-2 md:col-span-2 bg-gradient-to-br from-[#CD7F32] to-[#CF9E0B] p-12 md:p-20">
           <p className="text-white text-2xl font-bold w-[90%] mx-auto md:text-3xl">
             This is where every voice matters, and every role plays a part in shaping how people connect across The
-            Gambia, Sierra Leone and beyond. We're a team of bold thinkers, creators, and doers. We believe in
+            Gambia, Sierra Leone and beyond. We&apos;re a team of bold thinkers, creators, and doers. We believe in
             potential, not just credentials.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function InclusionPanel() {
         {/* bottom left panel */}
         <div className="flex items-center justify-center bg-amber-800 p-8 md:p-10">
           <h2 className="text-3xl w-[90%] mx-auto md:text-4xl lg:text-5xl font-medium text-white">
-            We're invested in your journey, not just your job
+            We&apos;re invested in your journey, not just your job
           </h2>
         </div>
 

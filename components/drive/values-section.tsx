@@ -9,7 +9,7 @@ interface ValuesSectionProps {
   isMobile: boolean
 }
 
-export function ValuesSection({ progress, isMobile }: ValuesSectionProps) {
+export function ValuesSection({ progress }: ValuesSectionProps) {
   // Transform progress to x position (slide in from right)
   const x = useTransform(progress, [0, 0.5], ["100%", "0%"])
 

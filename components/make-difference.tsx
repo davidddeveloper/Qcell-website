@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import React from 'react';
-import Image from 'next/image';
-"lucide-react"
+import React from 'react';  
+
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 interface CareerCardProps {
@@ -46,7 +45,6 @@ const careerCards: CareerCardProps[] = [
 ]
 
 export default function WhatDrivesUs() {
-    const [activeIndex, setActiveIndex] = useState(0)
   
     return (
       <section className="py-14 px-4 bg-white">

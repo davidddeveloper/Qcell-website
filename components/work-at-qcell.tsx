@@ -40,7 +40,7 @@ export default function WorkAtQcell() {
 
         <div className="absolute top-2/4 -translate-y-2/4 left-20 right-0 p-8">
           <blockquote className="mb-2">
-            <p className="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold md:max-w-md">"I feel like my voice actually matters here."</p>
+            <p className="text-xl sm:text-2xl md:text-3xl xl:text-5xl font-bold md:max-w-md">&quot;I feel like my voice actually matters here.&quot;</p>
           </blockquote>
 
           <p className="text-xs my-10 md:text-[20px] md:my-14 lg:my-24 ">Amanda, Customer Care Support</p>

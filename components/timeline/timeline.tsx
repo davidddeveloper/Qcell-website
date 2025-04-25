@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
-import { useInView, useScroll } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import './styles.css'
 
 
