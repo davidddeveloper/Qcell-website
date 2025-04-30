@@ -31,7 +31,7 @@ export default function LifeAtQcell() {
       {/* Bottom section with image and quote */}
       <div className="relative">
         <Image
-          src="/images/team.jpg"
+          src="/images/mechanical-engineer.jpg"
           alt="Qcell employee"
           width={500}
           height={400}
@@ -52,6 +52,7 @@ export default function LifeAtQcell() {
             <span className="md:text-xl">Watch the Film</span>
           </button>
         </div>
+        <div className="absolute inset-0 bg-black/80 z-10 opacity-25" />
       </div>
     </div>
     {isModalOpen && (
