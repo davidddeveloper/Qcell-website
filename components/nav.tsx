@@ -20,7 +20,8 @@ interface NavItem {
         href: string
         }>
         image?: string
-    }
+    },
+    href: string
 }
 
 const navItems: NavItem[] = [
@@ -32,8 +33,9 @@ const navItems: NavItem[] = [
         links: [
           {title: "About Qcell", href: "/about-us"},
           {title: "Careers", href: "/careers"},
-        ]
-        },
+        ],
+      },
+      href: "/about-us",
     },
     {
         title: "Tariffs",
@@ -41,6 +43,7 @@ const navItems: NavItem[] = [
         heading: "Latest Updates",
         subheading: "Stay up to date with our newest offerings",
         },
+        href: 'tarrifs'
     },
     {
         title: "Devices",
@@ -52,6 +55,7 @@ const navItems: NavItem[] = [
             { title: "Mobile Devices", href: "#" },
         ],
         },
+        href: 'devices'
     },
     {
         title: "Internet",
@@ -64,6 +68,7 @@ const navItems: NavItem[] = [
         ],
         image: "/placeholder.svg?height=200&width=400",
         },
+        href: 'internet'
     },
     {
         title: "Services",
@@ -79,6 +84,7 @@ const navItems: NavItem[] = [
             { title: "ESIM", href: "#" },
         ],
         },
+        href: 'services'
     },
     {
         title: "Promotions",
@@ -94,6 +100,7 @@ const navItems: NavItem[] = [
             { title: "Qnite", href: "#" },
         ],
         },
+        href: 'promotions'
     },
     {
         title: "Support",
@@ -108,6 +115,7 @@ const navItems: NavItem[] = [
             { title: "Know Your Number", href: "#" },
         ],
         },
+        href: 'support'
     },
 ]
 
@@ -319,7 +327,7 @@ export default function Navigation({page}: {page: string}) {
                 /> 
               </Link>
             </motion.div>
-            <p className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</p>
+            {/*<p className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</p>*/}
           </div>
 
             <nav className="ml-8 hidden items-center justify-between lg:flex">
@@ -336,6 +344,7 @@ export default function Navigation({page}: {page: string}) {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
+                    <Link href={item.href ? item.href : "#"}>
                     <motion.button
                       className={cn(
                         "group flex items-center py-2 text-sm font-medium text-white transition-colors",
@@ -373,6 +382,7 @@ export default function Navigation({page}: {page: string}) {
                         />
                       </motion.div>
                     </motion.button>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>

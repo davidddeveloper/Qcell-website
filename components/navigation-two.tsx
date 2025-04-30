@@ -58,7 +58,8 @@ interface NavItem {
       href: string
     }>
     image?: string
-  }
+  },
+  href: string
 }
 
 const navItems: NavItem[] = [
@@ -72,6 +73,7 @@ const navItems: NavItem[] = [
         {title: "Careers", href: "/careers"},
       ]
     },
+    href: 'about-us'
   },
   {
     title: "Tariffs",
@@ -79,6 +81,7 @@ const navItems: NavItem[] = [
       heading: "Latest Updates",
       subheading: "Stay up to date with our newest offerings",
     },
+    href: 'tariffs'
   },
   {
     title: "Devices",
@@ -90,6 +93,7 @@ const navItems: NavItem[] = [
         { title: "Mobile Devices", href: "#" },
       ],
     },
+    href: 'devices'
   },
   {
     title: "Internet",
@@ -102,6 +106,7 @@ const navItems: NavItem[] = [
       ],
       image: "/placeholder.svg?height=200&width=400",
     },
+    href: 'internet'
   },
   {
     title: "Services",
@@ -117,6 +122,7 @@ const navItems: NavItem[] = [
         { title: "ESIM", href: "#" },
       ],
     },
+    href: 'services'
   },
   {
     title: "Promotions",
@@ -132,6 +138,7 @@ const navItems: NavItem[] = [
         { title: "Qnite", href: "#" },
       ],
     },
+    href: 'promotions'
   },
   {
     title: "Support",
@@ -146,6 +153,7 @@ const navItems: NavItem[] = [
         { title: "Know Your Number", href: "#" },
       ],
     },
+    href: 'support'
   },
 ]
 
@@ -390,7 +398,7 @@ export default function Navigation() {
                 /> 
               </Link>
             </motion.div>
-            <p className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</p>
+            {/*<p className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</p>*/}
           </div>
 
             <nav className="ml-8 hidden items-center justify-between lg:flex">
@@ -407,43 +415,45 @@ export default function Navigation() {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
-                    <motion.button
-                      className={cn(
-                        "group flex items-center py-2 text-sm font-medium text-white transition-colors",
-                        activeItem === item.title ? "text-white font-bold" : "hover:text-white/80",
-                      )}
-                      onClick={() => setActiveItem(activeItem === item.title ? null : item.title)}
-                      onMouseEnter={() => setActiveItem(item.title)}
-                      whileHover={{
-                        scale: 1.05,
-                        transition: { duration: 0.2, ease: "easeOut" },
-                      }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span className="relative">
-                        {item.title}
-                        {activeItem === item.title && (
-                          <motion.div
-                            className="absolute -bottom-1 left-0 h-0.5 w-full bg-white"
-                            layoutId="navUnderline"
-                            transition={{ duration: 0.3, ease: "easeOut" }}
-                          />
+                    <Link href={item.href ? item.href : "#"}>
+                      <motion.button
+                        className={cn(
+                          "group flex items-center py-2 text-sm font-medium text-white transition-colors",
+                          activeItem === item.title ? "text-white font-bold" : "hover:text-white/80",
                         )}
-                      </span>
-                      <motion.div
-                        animate={{
-                          rotate: activeItem === item.title ? 180 : 0,
-                          transition: { duration: 0.3, ease: "easeInOut" },
+                        onClick={() => setActiveItem(activeItem === item.title ? null : item.title)}
+                        onMouseEnter={() => setActiveItem(item.title)}
+                        whileHover={{
+                          scale: 1.05,
+                          transition: { duration: 0.2, ease: "easeOut" },
                         }}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        <ChevronDown
-                          className={cn(
-                            "ml-1 h-4 w-4 transition-transform",
-                            activeItem === item.title ? "text-white" : "",
+                        <span className="relative">
+                          {item.title}
+                          {activeItem === item.title && (
+                            <motion.div
+                              className="absolute -bottom-1 left-0 h-0.5 w-full bg-white"
+                              layoutId="navUnderline"
+                              transition={{ duration: 0.3, ease: "easeOut" }}
+                            />
                           )}
-                        />
-                      </motion.div>
-                    </motion.button>
+                        </span>
+                        <motion.div
+                          animate={{
+                            rotate: activeItem === item.title ? 180 : 0,
+                            transition: { duration: 0.3, ease: "easeInOut" },
+                          }}
+                        >
+                          <ChevronDown
+                            className={cn(
+                              "ml-1 h-4 w-4 transition-transform",
+                              activeItem === item.title ? "text-white" : "",
+                            )}
+                          />
+                        </motion.div>
+                      </motion.button>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
