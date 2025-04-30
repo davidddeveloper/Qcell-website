@@ -193,7 +193,7 @@ export default function DevicesSlider() {
       <div className="relative sm:ml-24 mt-20"> {/* px-4 */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="ml-4">
           <h2 className="mt-3 ml-4 sm:ml-0 max-w-2xl text-2xl text-gray-500 my-5 sm:mt-4 md:text-2xl">
-            Take a Look at What's <span className="text-orange-400">New</span>
+            Take a Look at What&apos;s <span className="text-orange-400">New</span>
           </h2>
         </motion.div>
 
