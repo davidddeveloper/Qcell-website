@@ -78,8 +78,12 @@ const navItems: NavItem[] = [
   {
     title: "Tariffs",
     content: {
-      heading: "Latest Updates",
-      subheading: "Stay up to date with our newest offerings",
+      heading: "Latest Tarrifs",
+      subheading: "Stay up to date with the latest tarrifs",
+      links: [
+        {title: "tariffs", href: "/tariffs"},
+        {title: "On-net and off-net", href: "/tariffs"},
+      ]
     },
     href: 'tariffs'
   },
@@ -769,6 +773,7 @@ export default function Navigation() {
                         ease: [0.22, 1, 0.36, 1],
                       }}
                     >
+                      
                       <motion.button
                         className="flex w-full items-center justify-between text-left text-base font-medium text-white"
                         onClick={() => setMobileSubmenu(mobileSubmenu === item.title ? null : item.title)}

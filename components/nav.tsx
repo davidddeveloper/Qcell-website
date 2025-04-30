@@ -40,8 +40,12 @@ const navItems: NavItem[] = [
     {
         title: "Tariffs",
         content: {
-        heading: "Latest Updates",
-        subheading: "Stay up to date with our newest offerings",
+          heading: "Latest Tariffs",
+          subheading: "Stay up to date with our latest Tariffs",
+          links: [
+            {title: "Tariffs", href: "/tariffs"},
+            {title: "On-net and Off-net", href: "/tariffs"},
+          ],
         },
         href: 'tarrifs'
     },
