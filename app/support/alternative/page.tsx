@@ -1,7 +1,7 @@
 import ProductFocusedHero from "@/components/product-focused-hero"
 import SupportCategories from "@/components/support-categories"
 import SupportContact from "@/components/support-contact"
-import SupportOptions from "@/components/support-options"
+{/*import SupportOptions from "@/components/support-options"*/}
 import Navigation from "@/components/nav"
 import Footer from "@/components/footer"
 
