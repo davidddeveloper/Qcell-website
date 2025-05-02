@@ -5,7 +5,7 @@ import { MessageCircle, Mail } from "lucide-react"
 export default function SupportContact() {
   return (
     <div className="w-full py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:w-[70%] bg-white rounded-lg p-8">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-orange-500 mb-4">Support On Your Phone</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -47,24 +47,27 @@ export default function SupportContact() {
           </div>
         </div>
 
-        {/* Contact options */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="text-center">
+        
+      </div>
+
+      {/* Contact options */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-32">
+          <div className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
             <div className="text-orange-500 font-bold text-3xl md:text-4xl mb-2">24/7</div>
             <div className="text-orange-500 font-medium text-xl">Live Chat</div>
           </div>
 
-          <div className="text-center">
+          <div className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
             <div className="text-orange-500 font-bold text-3xl md:text-4xl mb-2">CALL</div>
             <div className="text-orange-500 font-medium text-xl">111</div>
           </div>
 
-          <div className="text-center">
+          <div className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
             <div className="text-orange-500 font-bold text-3xl md:text-4xl mb-2">Email</div>
             <div className="text-orange-500 font-medium text-xl">support@example.com</div>
           </div>
         </div>
-      </div>
     </div>
+
   )
 }
