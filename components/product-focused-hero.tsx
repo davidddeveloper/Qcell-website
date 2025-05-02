@@ -60,7 +60,7 @@ export default function ProductFocusedHero() {
 
             <div className="relative rounded-xl overflow-hidden aspect-square">
               <Image
-                src="https://images.unsplash.com/photo-1511200016789-e7b694d0783a?q=80&w=1000&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1000&auto=format&fit=crop"
                 alt="Phone in hand"
                 fill
                 className="object-cover"

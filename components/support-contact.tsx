@@ -52,17 +52,17 @@ export default function SupportContact() {
 
       {/* Contact options */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-32">
-          <div className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+          <div className="text-center sm:bg-white p-6 sm:rounded-lg sm:shadow-md sm:hover:shadow-lg sm:transition sm:duration-300">
             <div className="text-orange-500 font-bold text-3xl md:text-4xl mb-2">24/7</div>
             <div className="text-orange-500 font-medium text-xl">Live Chat</div>
           </div>
 
-          <div className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+          <div className="text-center sm:bg-white p-6 sm:rounded-lg sm:shadow-md sm:hover:shadow-lg sm:transition sm:duration-300">
             <div className="text-orange-500 font-bold text-3xl md:text-4xl mb-2">CALL</div>
             <div className="text-orange-500 font-medium text-xl">111</div>
           </div>
 
-          <div className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+          <div className="text-center sm:bg-white p-6 sm:rounded-lg sm:shadow-md sm:hover:shadow-lg sm:transition sm:duration-300">
             <div className="text-orange-500 font-bold text-3xl md:text-4xl mb-2">Email</div>
             <div className="text-orange-500 font-medium text-xl">support@example.com</div>
           </div>
