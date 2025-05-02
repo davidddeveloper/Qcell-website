@@ -16,7 +16,7 @@ export default function SupportOptions() {
             {/* Card 1: In-person specialist */}
             <div className="bg-white rounded-xl overflow-hidden shadow-sm">
               <div className="p-6">
-                <div className="uppercase text-sm font-medium text-gray-500 mb-2">Apple Specialist</div>
+                <div className="uppercase text-sm font-medium text-gray-500 mb-2">Qcell Specialist</div>
                 <h3 className="text-2xl font-medium mb-4">Shop one on one with a Specialist. Online or in a store.</h3>
                 <div className="relative h-64 w-full">
                   <Image
@@ -56,10 +56,10 @@ export default function SupportOptions() {
             <div className="rounded-xl overflow-hidden shadow-sm relative">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500"></div>
               <div className="relative p-6 h-full flex flex-col">
-                <div className="uppercase text-sm font-medium text-white/80 mb-2">Today at Apple</div>
-                <h3 className="text-2xl font-medium mb-4 text-white">Join us at your local Apple Store.</h3>
+                <div className="uppercase text-sm font-medium text-white/80 mb-2">Today at Qcell</div>
+                <h3 className="text-2xl font-medium mb-4 text-white">Join us at your local Qcell Store.</h3>
                 <p className="text-white/90 mb-6">
-                  Learn, create, and be inspired with hands-on sessions guided by Apple Creatives.
+                  Learn, create, and be inspired with hands-on sessions guided by Qcell Creatives.
                 </p>
                 <div className="relative h-48 w-full mt-auto mb-6 rounded-lg overflow-hidden">
                   <Image

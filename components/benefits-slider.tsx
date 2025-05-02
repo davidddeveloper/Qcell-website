@@ -37,7 +37,7 @@ export default function BenefitsSlider() {
       icon: <Truck className="h-10 w-10 text-pink-500" />,
       title: (
         <>
-          Enjoy <span className="text-pink-500">two-hour delivery</span> from an QCELL Store,{" "}
+          Enjoy <span className="text-pink-500">two-hour delivery</span> from any QCELL Store,{" "}
           <span className="text-pink-500">free delivery</span>, or <span className="text-pink-500">easy pickup.</span>
           <sup>2</sup>
         </>
