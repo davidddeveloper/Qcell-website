@@ -365,9 +365,9 @@ export default function Navigation() {
             marginTop: isScrolled ? "0" : "50px",
             width: isScrolled ? "100%" : "90%",
             borderRadius: isScrolled ? "0" : "0.3rem",
-            backgroundColor: isScrolled ? "rgba(158, 82, 1, 0.45)" : "rgba(158, 82, 1, 0.3)",
+            backgroundColor: isScrolled ? "rgba(158, 82, 1, 0.75)" : "rgba(158, 82, 1, 0.3)",
             transition: "all 0.5s",
-            backdropFilter: isScrolled ? "backdrop-blur(10px)" : "backdrop-blur(5px)",
+            backdropFilter: isScrolled ? "blur(10px)" : "blur(5px)",
         }}
       >
         {/*style={{
@@ -732,7 +732,7 @@ export default function Navigation() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-50 bg-gradient-to-b from-[#333333] to-[#CD7F32]/90 lg:hidden"
+            className="fixed overflow-y-scroll no-scrollbar inset-0 z-50 bg-gradient-to-b from-[#333333] to-[#CD7F32]/90 lg:hidden"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
@@ -759,7 +759,7 @@ export default function Navigation() {
                 </motion.button>
               </div>
 
-              <nav className="flex-1 px-4 py-6">
+              <nav className="flex-1 px-4 py-6 overflow-y-scroll no-scrollbar">
                 <ul className="space-y-2">
                   {navItems.map((item, index) => (
                     <motion.li

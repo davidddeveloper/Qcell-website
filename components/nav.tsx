@@ -294,9 +294,9 @@ export default function Navigation({page}: {page: string}) {
             marginTop: isScrolled ? "0" : "50px",
             width: isScrolled ? "100%" : "90%",
             borderRadius: isScrolled ? "0" : "0.3rem",
-            backgroundColor: isScrolled ? "rgba(158, 82, 1, 0.45)" : "rgba(158, 82, 1, 0.3)",
+            backgroundColor: isScrolled ? "rgba(158, 82, 1, 0.75)" : "rgba(158, 82, 1, 0.3)",
             transition: "all 0.5s",
-            backdropFilter: isScrolled ? "backdrop-blur(10px)" : "backdrop-blur(5px)",
+            backdropFilter: isScrolled ? "blur(10px)" : "blur(5px)",
         }}
       >
         {/*style={{
