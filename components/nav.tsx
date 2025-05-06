@@ -533,7 +533,7 @@ export default function Navigation({page}: {page: string}) {
                     width={40}
                     height={40}
                     className="h-[40px] w-[40px] object-cover rounded-md"
-                  /> <span className="ml-3 text-white">Expand Your World</span>
+                  /> {/*<span className="ml-3 text-white">Expand Your World</span>*/}
                 </Link>
                 <motion.button
                   className="rounded-full bg-white/20 p-2 text-white z-40"
@@ -591,7 +591,7 @@ export default function Navigation({page}: {page: string}) {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1, duration: 0.3 }}
                               >
-                                {item.content.heading}
+                                <Link href={item.href}>{item.content.heading}</Link>
                               </motion.p>
 
                               {item.content.subheading && (
