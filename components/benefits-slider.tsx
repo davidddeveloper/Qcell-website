@@ -49,8 +49,8 @@ export default function BenefitsSlider() {
       icon: <Watch className="h-10 w-10 text-orange-500" />,
       title: (
         <>
-          <span className="text-orange-500">Choose a band. Pick a case.</span> Make an Apple Watch{" "}
-          <span className="text-orange-500">just for them.</span>
+          <span className="text-orange-500">Lorem ipsum dolor sit amet..</span> Lorem, ipsum dolor.{" "}
+          <span className="text-orange-500">Lorem, ipsum.</span>
         </>
       ),
       description: "",
@@ -60,7 +60,7 @@ export default function BenefitsSlider() {
       icon: <CreditCard className="h-10 w-10 text-orange-500" />,
       title: (
         <>
-          Pay in full or <span className="text-orange-500">pay over time.</span> Your choice.
+          Lorem ipsum dolor sit. <span className="text-orange-500">Lorem, ipsum dolor.</span> Lorem, ipsum.
         </>
       ),
       description: "",
@@ -70,8 +70,8 @@ export default function BenefitsSlider() {
       icon: <Gift className="h-10 w-10 text-pink-500" />,
       title: (
         <>
-          Make it <span className="text-pink-500">truly personal</span> with{" "}
-          <span className="text-pink-500">free engraving.</span>
+          Lorem, ipsum. <span className="text-pink-500">Lorem, ipsum.</span> Lorem.{" "}
+          <span className="text-pink-500">Lorem, ipsum.</span>
         </>
       ),
       description: "",

@@ -1,3 +1,5 @@
+"use client"
+
 import SupportHero from "@/components/support-hero"
 import SupportCategories from "@/components/support-categories"
 import SupportContact from "@/components/support-contact"

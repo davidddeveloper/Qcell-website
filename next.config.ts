@@ -6,7 +6,11 @@ const nextConfig: NextConfig = {
     MAP_BOX_ACCESS_TOKEN: process.env.MAP_BOX_ACCESS_TOKEN,
   },
   images: {
-    domains: ["source.unsplash.com", "unsplash.com", "images.unsplash.com"], // Add the domain here
+    remotePatterns: [
+      { protocol: "https", hostname: "source.unsplash.com" },
+      { protocol: "https", hostname: "unsplash.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
+    ], // Add the domain here
   },
 };
 

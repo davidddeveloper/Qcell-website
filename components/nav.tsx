@@ -47,7 +47,7 @@ const navItems: NavItem[] = [
             {title: "On-net and Off-net", href: "/tariffs"},
           ],
         },
-        href: 'tarrifs'
+        href: 'tariffs'
     },
     {
         title: "Devices",

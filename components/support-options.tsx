@@ -16,7 +16,7 @@ export default function SupportOptions() {
             {/* Card 1: In-person specialist */}
             <div className="bg-white rounded-xl overflow-hidden shadow-sm">
               <div className="p-6">
-                <div className="uppercase text-sm font-medium text-gray-500 mb-2">Qcell Specialist</div>
+                <div className="uppercase text-sm font-medium text-gray-500 mb-2">QCELL Specialist</div>
                 <h3 className="text-2xl font-medium mb-4">Shop one on one with a Specialist. Online or in a store.</h3>
                 <div className="relative h-64 w-full">
                   <Image
@@ -37,7 +37,7 @@ export default function SupportOptions() {
               <div className="p-6">
                 <div className="uppercase text-sm font-medium text-gray-500 mb-2">Video Shopping</div>
                 <h3 className="text-2xl font-medium mb-4">Shop with a Specialist over video.</h3>
-                <p className="text-gray-600 mb-4">Choose your next device in a guided, one-way video session.</p>
+                <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 <div className="relative h-56 w-full">
                   <Image
                     src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1000&auto=format&fit=crop"
@@ -56,10 +56,10 @@ export default function SupportOptions() {
             <div className="rounded-xl overflow-hidden shadow-sm relative">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500"></div>
               <div className="relative p-6 h-full flex flex-col">
-                <div className="uppercase text-sm font-medium text-white/80 mb-2">Today at Qcell</div>
-                <h3 className="text-2xl font-medium mb-4 text-white">Join us at your local Qcell Store.</h3>
+                <div className="uppercase text-sm font-medium text-white/80 mb-2">Today at QCELL</div>
+                <h3 className="text-2xl font-medium mb-4 text-white">Join us at your local QCELL Store.</h3>
                 <p className="text-white/90 mb-6">
-                  Learn, create, and be inspired with hands-on sessions guided by Qcell Creatives.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae adipisci fugit dolorem quidem.
                 </p>
                 <div className="relative h-48 w-full mt-auto mb-6 rounded-lg overflow-hidden">
                   <Image
