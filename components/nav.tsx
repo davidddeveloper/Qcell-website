@@ -545,7 +545,7 @@ export default function Navigation({page}: {page: string}) {
                 </motion.button>
               </div>
 
-              <nav className="flex-1 px-4 py-6">
+              <nav className="flex-1 px-4 py-6 overflow-y-scroll no-scrollbar">
                 <ul className="space-y-2">
                   {navItems.map((item, index) => (
                     <motion.li
