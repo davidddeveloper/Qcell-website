@@ -4,7 +4,7 @@ import TariffsHero from "@/components/tariffs-hero"
 import TariffNavigation from "@/components/tariff-navigation"
 import DataBundles from "@/components/data-bundles"
 import Navigation from "@/components/nav"
-import { use, useEffect } from "react"
+import { useEffect } from "react"
 
 export default function DataBundlesPage() {
   useEffect(() => {
