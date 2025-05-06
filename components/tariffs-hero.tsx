@@ -96,17 +96,17 @@ export default function TariffsHero() {
             animate={controls}
             variants={textVariants}
           >
-            <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
               Tariffs that fit your pocket
             </h1>
-            <motion.button
+            {/*<motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
               className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               View Plans
-            </motion.button>
+            </motion.button>*/}
           </motion.div>
         </motion.div>
       </div>
