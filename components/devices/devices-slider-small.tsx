@@ -6,8 +6,59 @@ import useEmblaCarousel from "embla-carousel-react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 
-import { offerings } from "@/types/offerings"
+export interface DevicesInterface {
+  id: string
+  title: string
+  image: string
+}
+
+//import { offerings } from "@/types/offerings"
 import { Button } from "@/components/ui/button"
+
+
+const devices: DevicesInterface[] = [
+  {
+    id: "qpower",
+    title: "QPower",
+    image: "/images/device1.png",
+  },
+  {
+    id: "qpower",
+    title: "QPower",
+    image: "/images/device2.png",
+  },
+  {
+    id: "qpower",
+    title: "QPower",
+    image: "/images/device3.png",
+  },
+  {
+    id: "qpower",
+    title: "QPower",
+    image: "/images/qmobile.png",
+  },
+  {
+    id: "qpower",
+    title: "QPower",
+    image: "/images/router.png",
+  },
+  {
+    id: "qpower",
+    title: "QPower",
+    image: "/images/qsmart-plus.png",
+  },
+  {
+    id: "qpower",
+    title: "QPower",
+    image: "/images/mifi.png",
+  },
+  {
+    id: "qpower",
+    title: "QPower",
+    image: "/images/qsmart.png",
+  },
+  
+]
 
 export default function DevicesSliderSmall() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -23,11 +74,6 @@ export default function DevicesSliderSmall() {
     <div className="relative w-full px-0 overflow-hidden py-2 pb-10 bg-transparent rounded-lg md:max-w-[110%] md:rounded-lg"> {/* py-16 */}
       
       <div className="relative mt-24"> {/* px-4 */}
-        {/*<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="ml-4">
-          <h2 className="mt-3 max-w-2xl text-xl text-gray-500 my-5 sm:mt-4 md:text-2xl">
-            Take a Look at What's <span className="text-orange-400">New</span>
-          </h2>
-        </motion.div>*/}
 
         <div className="rounded-lg"> {/* px-4 */}
           <div className="relative w-[80%] md:w-[50%] mx-auto rounded-lg">
@@ -56,44 +102,27 @@ export default function DevicesSliderSmall() {
             </div>
 
             <div className="overflow-hidden rounded-lg" ref={emblaRef}>
-              <div className="flex touch-pan-y w-full rounded-lg h-[120px] md:h-[120px]">
-                {offerings.map((offering) => (
+              <div className="flex touch-pan-y w-full rounded-lg h-[200px] md:h-[200px]">
+                {devices.map((device) => (
                   <div
-                    key={offering.id}
+                    key={device.id}
                     className="relative min-w-0 flex-[0_0_50%] pl-4 pr-4 sm:flex-[0_0_50%] md:flex-[0_0_35%] lg:flex-[0_0_40%] space-x-4"
                   >
                     <motion.div
                       className="relative h-full min-h-[50px] w-full cursor-pointer md:min-h-[50px]" // md:min-h-[600px]
                     >
                       
-                      <Card className="group relative h-full overflow-hidden bg-gradient-to-br from-[#CD7F32] to-[#B87333] z-20">
+                      <Card className="group relative h-full overflow-hidden z-20 bg-transparent border-0 bg-gradient-to-r from-red-500/40 to-[#ff8400]/50 mix-blend-overlay"> {/* bg-gradient-to-br from-[#CD7F32] to-[#B87333] */}
                         
-                        <CardContent className="relative flex h-full flex-col items-start justify-between p-6 md:p-14">
-                          {/*<div className="w-full z-20">
-                            <motion.h3
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: index * 0.1 }}
-                              className="text-2xl font-bold text-white"
-                            >
-                              {offering.title}
-                            </motion.h3>
-                            <motion.p
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: index * 0.1 + 0.1 }}
-                              className="mt-2 text-white/80"
-                            >
-                              {offering.description}
-                            </motion.p>
-                          </div>*/}
+                        <CardContent className="relative flex h-full flex-col items-start justify-between p-6 md:p-14 border-0">
+                          
 
-                          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 to-transparent" />
+                          <div className="absolute inset-0 z-10" /> {/* bg-gradient-to-t from-black/60 to-transparent */}
                           <Image
-                            src={offering.image}
-                            alt={offering.title}
+                            src={device.image}
+                            alt={device.title}
                             fill
-                            className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                            className="object-contain object-center transition-transform duration-500 group-hover:scale-105"
                           />
                         </CardContent>
                       </Card>

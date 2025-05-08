@@ -131,7 +131,7 @@ export default function ProductShowcase() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Navigation */}
-      <nav className="flex justify-center mb-8">
+      <div className="flex justify-center mb-8">
         <ul className="flex space-x-8">
           {categories.map((category) => (
             <li key={category}>
@@ -150,7 +150,7 @@ export default function ProductShowcase() {
             </li>
           ))}
         </ul>
-      </nav>
+      </div>
 
       {/* Product Grid */}
       <AnimatePresence mode="wait">

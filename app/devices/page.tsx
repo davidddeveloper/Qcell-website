@@ -42,7 +42,7 @@ export default function DevicesPage () {
                         boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
                         }}
                         whileTap={{ scale: 0.97 }}
-                        className="w-[150px] z-50"
+                        className="w-[150px] z-30"
                     >
                         <Link
                         href="#devices"
@@ -52,10 +52,10 @@ export default function DevicesPage () {
                         See all devices
                         </Link>
                     </motion.div>
-                    <motion.div className="block sm:hidden absolute bg-gradient-to-r from-[#ff8400]/80 to-[#ff8400]/80 inset-0 -z-10 h-[140%] opacity-25 -mt-[70px]"></motion.div>
+                    {/*<motion.div className="block sm:hidden absolute bg-gradient-to-r from-[#ff8400]/80 to-[#ff8400]/80 inset-0 -z-10 h-[110vh] opacity-25 -mt-[70px]"></motion.div>*/}
 
                 </motion.div>
-                <motion.div className="hidden sm:block absolute bg-gradient-to-r from-[#ff8400]/80 to-[#ff8400]/80 inset-0 opacity-25 z-10 "></motion.div>
+                {/*<motion.div className="hidden sm:block absolute bg-gradient-to-r from-[#ff8400]/80 to-[#ff8400]/80 inset-0 opacity-25 z-10 "></motion.div>*/}
 
                 <motion.div id="devices" className="absolute -bottom-5 left-0 right-0 z-20 hidden md:block">
                     <DevicesSliderSmall />
@@ -73,7 +73,7 @@ export default function DevicesPage () {
                 <ProductShowcase />
             </motion.div>
 
-            <motion.div>
+            <motion.div className="overflow-hidden">
                 <BenefitsSlider />
             </motion.div>
 
