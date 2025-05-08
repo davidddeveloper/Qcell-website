@@ -63,7 +63,7 @@ export default function TariffsHero() {
           src="/images/voice-tariffs.jpg"
           alt="Woman making a phone call"
           fill
-          className="object-cover"
+          className="object-cover object-left sm:object-center"
           priority
         />
       </motion.div>
@@ -96,17 +96,10 @@ export default function TariffsHero() {
             animate={controls}
             variants={textVariants}
           >
-            <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-white text-6xl md:text-7xl lg:text-6xl font-bold leading-tight">
               Tariffs that fit your pocket
             </h1>
-            {/*<motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-              className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-            >
-              View Plans
-            </motion.button>*/}
+            
           </motion.div>
         </motion.div>
       </div>

@@ -663,17 +663,6 @@ export default function Navigation({page}: {page: string}) {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.4 }}
                 >
-                  {/*<motion.button
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white"
-                    onClick={() => {
-                        setMobileMenuOpen(false)
-                        toggleSearch()
-                    }}
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <Search className="h-5 w-5" />
-                  </motion.button>*/}
                 </motion.div>
               </div>
             </div>
