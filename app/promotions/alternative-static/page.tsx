@@ -1,6 +1,6 @@
 "use client"
 import {motion, AnimatePresence} from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import Navigation from "@/components/nav"
 import BackgroundVideo from '@/components/background-video'
 
