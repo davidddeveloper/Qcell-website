@@ -331,7 +331,7 @@ export default function Navigation({page}: {page: string}) {
                 /> 
               </Link>
             </motion.div>
-            {/*<p className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</p>*/}
+            <p className="ml-3 text-[#fad4ab] md:hidden">{page !== 'about-us' ? 'QCELL' : ''} {page.charAt(0).toUpperCase() + page.slice(1)}</p>
           </div>
 
             <nav className="ml-8 hidden items-center justify-between lg:flex">

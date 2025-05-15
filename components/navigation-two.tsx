@@ -402,7 +402,7 @@ export default function Navigation() {
                 /> 
               </Link>
             </motion.div>
-            {/*<p className="ml-3 text-[#fad4ab] sm:hidden">Expand Your World</p>*/}
+            <p className="ml-3 text-[#fad4ab] md:hidden">Expand Your World</p>
           </div>
 
             <nav className="ml-8 hidden items-center justify-between lg:flex">
