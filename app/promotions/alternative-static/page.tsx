@@ -5,20 +5,7 @@ import Navigation from "@/components/nav"
 import BackgroundVideo from '@/components/background-video'
 
 export default function Promotions () {
-    const videoRef = useRef<HTMLVideoElement>(null)
-    const [isPlaying, setIsPlaying] = useState(true)
     const heroContentRef = useRef<HTMLDivElement>(null)
-
-    const toggleVideo = () => {
-        if (videoRef.current) {
-        if (isPlaying) {
-            videoRef.current.pause()
-        } else {
-            videoRef.current.play()
-        }
-        setIsPlaying(!isPlaying)
-        }
-    }
 
     const hideHeroContent = () => {
         if (heroContentRef.current) {
