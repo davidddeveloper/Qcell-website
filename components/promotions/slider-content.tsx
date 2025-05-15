@@ -4,32 +4,32 @@ import { motion, AnimatePresence } from 'framer-motion';
 const heroContent = [
     {
         tag: 'promotions',
-        title: "1. Unbeatable Offers Just for You!",
+        title: "Unbeatable Offers Just for You!",
         description: "Big offers. Bigger wins. Only from Qcell.",
     },
     {
         tag: 'Emergency Sites',
-        title: "2. Always Connected, Wherever You Are!",
+        title: "Always Connected, Wherever You Are!",
         description: "Emergency coverage when you need it most—powered by QCell.",
     },
     {
         tag: 'Recharge Bonanza',
-        title: "3. Recharge and Win Big!",
+        title: "Recharge and Win Big!",
         description: "Every top-up brings you closer to amazing rewards.",
     },
     {
         tag: 'QCell Bonanza',
-        title: "4. The Ultimate QCell Giveaway!",
+        title: "The Ultimate QCell Giveaway!",
         description: "Phones, cash, data and more—just for being with us.",
     },
     {
         tag: 'Tok En Browse',
-        title: "5. Talk More, Browse More!",
+        title: "Talk More, Browse More!",
         description: "Get minutes and data in one unbeatable bundle.",
     },
     {
         tag: 'Qnite',
-        title: "6. Browse All Night for Less!",
+        title: "Browse All Night for Less!",
         description: "Nighttime data at unbeatable prices—only on Qnite.",
     }
 ]
@@ -37,6 +37,8 @@ const heroContent = [
 export default function SliderContent () {
     const heroContentRef = useRef<HTMLDivElement>(null)
     const [currentSlide, setCurrentSlide] = useState(0)
+    const [targetWidth, setTargetWidth] = useState('80%');
+
     
     // Auto-advance slider
     useEffect(() => {
@@ -46,6 +48,21 @@ export default function SliderContent () {
     
         return () => clearInterval(interval)
     }, [])
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) {
+                // sm and up (Tailwind's sm breakpoint is 640px)
+                setTargetWidth('60%');
+            } else {
+                setTargetWidth('80%');
+            }
+        };
+
+        handleResize(); // Set initially
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const hideHeroContent = () => {
         if (heroContentRef.current) {
@@ -73,7 +90,7 @@ export default function SliderContent () {
                     ref={heroContentRef}
                     className='w-[80%] sm:w-2/4 px-10 sm:px-20 bg-black/70 absolute left-0 h-full flex flex-col justify-evenly items-center'
                     initial={{ opacity: 0, width: '0%' }}
-                    animate={{ opacity: 1, width: ['50%', '80%'] }}
+                    animate={{ opacity: 1, width: targetWidth }}
                     exit={{ opacity: 0, width: '0%' }}
                     transition={{ duration: 0.5 }}
                     onScroll={hideHeroContent}
@@ -110,59 +127,20 @@ export default function SliderContent () {
                         <motion.p className='block transition-all duration-75 hover:text-[#f98f1f]'>{heroContent[currentSlide].description.split(".")[2]} {/*<motion.p className='inline-block text-[#F98F1F]'>Qcell.</motion.p>*/}</motion.p>
                     </motion.p>
                 
-
-                    <motion.div className="absolute right-0 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
+                    {Array.from({ length: 13 }).map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className={`absolute right-${i} bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay`}
                         initial={{ opacity: 0, y: 40, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 1, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-1 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 1.2, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-2 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 1.4, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-3 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 1.6, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-4 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 1.8, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-5 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 2, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-6 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 2.2, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-7 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 2.4, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-8 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 2.6, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-9 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 2.8, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-10 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 3, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-11 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 3.2, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
-                    <motion.div className="absolute right-12 bg-[#f98f1f]/90 w-[2px] h-full mix-blend-overlay"
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 3.4, duration: 0.8, type: "spring", stiffness: 60 }}></motion.div>
+                        transition={{
+                        delay: 1 + i * 0.2,
+                        duration: 0.8,
+                        type: "spring",
+                        stiffness: 60
+                        }}
+                    />
+                    ))}
                 </motion.div>
             </motion.div>
         </AnimatePresence>
