@@ -109,23 +109,45 @@ export default function SliderContent () {
                             {heroContent[currentSlide].title}
                         </motion.h1>
                     </AnimatePresence>
-                    <motion.p
-                        className='text-white self-start flex gap-1 flex-shrink-0'
-                        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ delay: 0.7, duration: 0.8, type: "spring", stiffness: 60 }}
-                    >
-                        <motion.p
-                            className='block transition-all duration-75 hover:text-[#f98f1f]'
-                            initial={{ scale: 1, x: 0 }}
-                            animate={{ scale: [1, 1.9, 1], x: [0, 40, 0] }}
-                            transition={{ delay: 2, duration: 0.6, times: [0, 0.5, 1], type: "spring", stiffness: 60 }}
-                        >
-                            {heroContent[currentSlide].description.split(".")[0]}
-                        </motion.p>
-                        <motion.p className='block transition-all duration-75 z-10 hover:scale-150 hover:-translate-y-5 hover:text-[#f98f1f]'>{heroContent[currentSlide].description.split(".")[1]} </motion.p> 
-                        <motion.p className='block transition-all duration-75 hover:text-[#f98f1f]'>{heroContent[currentSlide].description.split(".")[2]} {/*<motion.p className='inline-block text-[#F98F1F]'>Qcell.</motion.p>*/}</motion.p>
-                    </motion.p>
+                    {
+                        heroContent[currentSlide].tag === "promotions" ? (
+                            <motion.p
+                                className='text-white self-start flex gap-3 flex-shrink-0'
+                                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                transition={{ delay: 0.7, duration: 0.8, type: "spring", stiffness: 60 }}
+                            >
+                                <motion.p
+                                    className='block transition-all duration-75 hover:text-[#f98f1f] border-b-2 border-[#f98f1f] pb-2'
+                                    initial={{ scale: 1, x: 0 }}
+                                    animate={{ scale: [1, 1.9, 1], x: [0, 40, 0] }}
+                                    transition={{ delay: 2, duration: 0.6, times: [0, 0.5, 1], type: "spring", stiffness: 60 }}
+                                >
+                                    {heroContent[currentSlide].description.split(".")[0].split(" ")[0]} <br />
+                                    {heroContent[currentSlide].description.split(".")[0].split(" ")[1]}.
+                                </motion.p>
+                                <motion.p className='block transition-all duration-75 z-10 hover:scale-150 hover:-translate-y-5 hover:text-[#f98f1f]'>
+                                    {heroContent[currentSlide].description.split(".")[1].split(" ")[1]} <br />
+                                    {heroContent[currentSlide].description.split(".")[1].split(" ")[2]}.
+                                </motion.p> 
+                                <motion.p className='block transition-all duration-75 hover:text-[#f98f1f] border-b-2 border-[#f98f1f] pb-2'>
+                                    {heroContent[currentSlide].description.split(".")[2].split(" ")[1] + " " + heroContent[currentSlide].description.split(".")[2].split(" ")[2]} <br /> {/*<motion.p className='inline-block text-[#F98F1F]'>Qcell.</motion.p>*/}
+                                    {heroContent[currentSlide].description.split(".")[2].split(" ")[3]} {/*<motion.p className='inline-block text-[#F98F1F]'>Qcell.</motion.p>*/}
+                                </motion.p>
+                            </motion.p>
+                        ) : (
+
+                            <motion.p
+                                className='text-white self-start flex gap-1 flex-shrink-0'
+                                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                transition={{ delay: 0.7, duration: 0.8, type: "spring", stiffness: 60 }}
+                            > 
+                                <motion.p className='block transition-all duration-75 z-10 hover:scale-105   hover:-translate-y-5 hover:text-[#f98f1f]'>{heroContent[currentSlide].description} </motion.p>
+                            </motion.p>
+                        )
+
+                    }
                 
                     {Array.from({ length: 13 }).map((_, i) => (
                     <motion.div
