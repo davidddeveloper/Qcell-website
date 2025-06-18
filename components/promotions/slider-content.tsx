@@ -53,7 +53,7 @@ export default function SliderContent () {
         const handleResize = () => {
             if (window.innerWidth >= 768) {
                 // sm and up (Tailwind's sm breakpoint is 640px)
-                setTargetWidth('60%');
+                setTargetWidth('50%');
             } else {
                 setTargetWidth('80%');
             }
