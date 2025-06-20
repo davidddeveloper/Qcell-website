@@ -74,7 +74,7 @@ export default function ServicesPage() {
   const service6Y = useTransform(smoothScrollYProgress, [0.85, 0.95, 1.5], [30, 0, -30])
   const service6Scale = useTransform(smoothScrollYProgress, [0.85, 0.95, 1.5], [0.9, 1, 0.9])
 
-  const service7Opacity = useTransform(smoothScrollYProgress, [0.55, 0.65, 0.75], [0, 1, 0])
+  const service7Opacity = useTransform(smoothScrollYProgress, [0.8, 0.9, 1], [0, 1, 0])
   const service7Y = useTransform(smoothScrollYProgress, [0.95, 0.95, 2], [30, 0, -30])
   const service7Scale = useTransform(smoothScrollYProgress, [0.95, 0.95, 2], [0.9, 1, 0.9])
 
