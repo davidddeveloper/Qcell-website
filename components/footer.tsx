@@ -149,7 +149,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden z-40"
       style={{
         background: "linear-gradient(135deg, #ffffff 0%, #f9f9f9 50%, #f5f5f5 100%)",
       }}
