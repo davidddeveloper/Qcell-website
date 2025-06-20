@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { motion, useScroll, useSpring } from "framer-motion"
+import { motion } from "framer-motion"
 import Navigation from "@/components/nav"
 import TypingEffect from "@/components/TypingEffect"
 
