@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion"
-import Image from "next/image"
 import Navigation from "@/components/nav"
 import TypingEffect from "@/components/TypingEffect"
 
@@ -26,12 +25,12 @@ export default function AboutPage() {
   })
 
   // Transform values based on smooth scroll
-  const yPosition = useTransform(smoothScrollYProgress, [0, 1], [windowHeight * 0.1, windowHeight * 1.5])
+  //const yPosition = useTransform(smoothScrollYProgress, [0, 1], [windowHeight * 0.1, windowHeight * 1.5])
 
-  const scaleValue = useTransform(smoothScrollYProgress, [0, 0.3, 0.7, 1], [1, 0.9, 0.8, 0.7])
+  //const scaleValue = useTransform(smoothScrollYProgress, [0, 0.3, 0.7, 1], [1, 0.9, 0.8, 0.7])
 
   // Add subtle horizontal movement for realism
-  const xMovement = useTransform(smoothScrollYProgress, [0, 0.3, 0.7, 1], [0, -20, 10, -5])
+  //const xMovement = useTransform(smoothScrollYProgress, [0, 0.3, 0.7, 1], [0, -20, 10, -5])
 
   // Subtle continuous floating animation
   const floatY = useRef(0)
@@ -51,6 +50,7 @@ export default function AboutPage() {
       floatY.current = Math.sin(Date.now() / 1000) * 10
       setFloatOffset(floatY.current)
     }, 16) // ~60fps
+    console.log(floatOffset)
 
     return () => {
       window.removeEventListener("resize", handleResize)
