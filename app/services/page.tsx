@@ -270,7 +270,12 @@ export default function ServicesPage() {
       
       <Footer />
 
-      {/* Optional: Fullscreen overlay for mobile */}
+      {typeof window !== "undefined" && (
+        <div
+            className="hidden backdrop-filter z-[40] bg-black/40 absolute inset-0 transition-all"
+            style={{ height: `${document.body.scrollHeight}px` }}
+        ></div>
+      )}
     </>
   )
 }
