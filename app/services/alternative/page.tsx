@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { motion, useScroll, useTransform, useSpring } from "framer-motion"
+import { motion, useScroll, useSpring } from "framer-motion"
 import Navigation from "@/components/nav"
 import TypingEffect from "@/components/TypingEffect"
 
@@ -15,14 +15,14 @@ export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Get scroll progress for the entire page
-  const { scrollYProgress } = useScroll()
+  //const { scrollYProgress } = useScroll()
 
   // Create spring-based animations for smooth movement
-  const smoothScrollYProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  })
+  //const smoothScrollYProgress = useSpring(scrollYProgress, {
+  //  stiffness: 100,
+  //  damping: 30,
+  //  restDelta: 0.001,
+  //})
 
   // Transform values based on smooth scroll
   //const yPosition = useTransform(smoothScrollYProgress, [0, 1], [windowHeight * 0.1, windowHeight * 1.5])
@@ -40,6 +40,7 @@ export default function AboutPage() {
   useEffect(() => {
     const handleResize = () => {
       setWindowHeight(window.innerHeight)
+      console.log("Window height updated:", windowHeight)
     }
 
     handleResize()

@@ -1,6 +1,6 @@
 "use client";
 
-import { MotionConfig } from "framer-motion";
+//import { MotionConfig } from "framer-motion";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "@/components/nav";
 import Image from "next/image";
