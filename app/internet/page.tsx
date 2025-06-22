@@ -2,64 +2,17 @@
 
 import type React from "react"
 
-import { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence, useInView } from "framer-motion"
-import { Play, Pause, X, Volume2, Maximize, Minimize } from "lucide-react"
+import { useRef, useEffect } from "react"
+import { motion, useInView } from "framer-motion"
 import Navigation from "@/components/nav" 
-import InclusionPanel from "@/components/inclusion-panel"
-import WorkAtQcell from "@/components/work-at-qcell"
-import LifeAtQcell from "@/components/life-at-qcell"
-import MakeADifference from "@/components/make-difference"
 import Footer from "@/components/footer"
-import Image from "next/image"
 
 export default function CareersPage() {
-  const [isPlaying, setIsPlaying] = useState(true)
-  const [isFullscreen, setIsFullscreen] = useState(false)
-  const [controlsTimeout, setControlsTimeout] = useState<NodeJS.Timeout | null>(null)
 
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const modalVideoRef = useRef<HTMLVideoElement>(null)
-  const videoContainerRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: false, amount: 0.3 })
 
-  // Format time in MM:SS format
-  const formatTime = (timeInSeconds: number) => {
-    const minutes = Math.floor(timeInSeconds / 60)
-    const seconds = Math.floor(timeInSeconds % 60)
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
-  }
-
   // Listen for fullscreen change events
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(
-        document.fullscreenElement !== null ||
-          (document as Document & { webkitFullscreenElement?: () => void }).webkitFullscreenElement !== null ||
-          (document as Document & { msFullscreenElement?: () => void }).msFullscreenElement !== null,
-      )
-    }
-
-    document.addEventListener("fullscreenchange", handleFullscreenChange)
-    document.addEventListener("webkitfullscreenchange", handleFullscreenChange)
-    document.addEventListener("msfullscreenchange", handleFullscreenChange)
-
-    return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange)
-      document.removeEventListener("webkitfullscreenchange", handleFullscreenChange)
-      document.removeEventListener("msfullscreenchange", handleFullscreenChange)
-    }
-  }, [])
-
-  // Clean up timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (controlsTimeout) {
-        clearTimeout(controlsTimeout)
-      }
-    }
-  }, [controlsTimeout])
 
   // set the document title
   useEffect(() => {
